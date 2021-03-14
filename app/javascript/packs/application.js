@@ -12,7 +12,17 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap/dist/js/bootstrap'
-import 'bootstrap/dist/css/bootstrap'
+// CSS
+import 'scss/application'
+
+// JS
+require("packs/navbar")
+
+// Bootstrap
+import 'bootstrap'
+
+// Fontawesome
 import "@fortawesome/fontawesome-free/css/all"
-require("stylesheets/application.scss")
+
+// Another files
+require("scss/application.scss")
