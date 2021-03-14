@@ -1,0 +1,2 @@
+class EnvironmentalCondition < ApplicationRecord
+end

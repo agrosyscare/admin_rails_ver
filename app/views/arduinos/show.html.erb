@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @arduino.model %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @arduino.serial %>
+</p>
+
+<%= link_to 'Edit', edit_arduino_path(@arduino) %> |
+<%= link_to 'Back', arduinos_path %>

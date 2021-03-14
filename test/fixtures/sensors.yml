@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  serial: MyString
+  environmental_condition: one
+  arduino: one
+
+two:
+  model: MyString
+  serial: MyString
+  environmental_condition: two
+  arduino: two

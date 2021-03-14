@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(email: 'admin@admin.com', password: '123456', password_confirmation: '123456')
+EnvironmentalCondition.create!(name: 'Temperatura')
+EnvironmentalCondition.create!(name: 'Humedad Ambiental')
+EnvironmentalCondition.create!(name: 'Humedad Radicular')
 
 10.times do
   Greenhouse.create!([{
@@ -15,9 +18,25 @@ User.create!(email: 'admin@admin.com', password: '123456', password_confirmation
 end
 
 5.times do
+  Arduino.create!([{
+                  model: Faker::Device.model_name,
+                  serial: Faker::Device.serial
+                }])
+end
+
+5.times do
   Floor.create!([{
                   name: Faker::Coffee.blend_name,
                   plant_type: Faker::Lorem.sentence(word_count: 5),
                   greenhouse_id: rand(Greenhouse.count)
+                }])
+end
+
+3.times do |i|
+  Sensor.create!([{
+                  model: Faker::Coffee.blend_name,
+                  serial: Faker::Lorem.sentence(word_count: 5),
+                  environmental_condition_id: i + 1,
+                  arduino_id: Arduino.first.id
                 }])
 end

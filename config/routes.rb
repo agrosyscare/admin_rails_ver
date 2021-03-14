@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sensors
+  resources :arduinos
   resources :floors
   root 'static_pages#landing_page'
   devise_for :users
