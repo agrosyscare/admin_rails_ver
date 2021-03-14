@@ -58,3 +58,6 @@ end
 
 gem 'devise'
 gem 'faker'
+gem 'public_activity'
+gem 'pundit'
+gem 'rolify'

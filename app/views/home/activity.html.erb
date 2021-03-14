@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1>Auditoria</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>trackable_type</th>
+      <th>trackable_id</th>
+      <th>owner_type</th>
+      <th>key</th>
+      <th>parameters</th>
+      <th>recipient_type</th>
+      <th>recipient_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.id %></td>
+        <td><%= activity.trackable_type %></td>
+        <td><%= activity.trackable_id %></td>
+        <td><%= activity.owner.email %></td>
+        <td><%= activity.key %></td>
+        <td><%= activity.parameters %></td>
+        <td><%= activity.recipient_type %></td>
+        <td><%= activity.recipient_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
