@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @floor.name %>
+</p>
+
+<p>
+  <strong>Plant type:</strong>
+  <%= @floor.plant_type %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @floor.greenhouse_id %>
+</p>
+
+<%= link_to 'Edit', edit_floor_path(@floor) %> |
+<%= link_to 'Back', floors_path %>

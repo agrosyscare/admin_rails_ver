@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :floors
   root 'static_pages#landing_page'
   devise_for :users
   resources :greenhouses
