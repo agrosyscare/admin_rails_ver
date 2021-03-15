@@ -1,0 +1,9 @@
+<%= user.email %>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email, wrapper_html: { class: 'email' } %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.collection_check_boxes :role_ids, Role.all , :id, :name %>
+  <%= f.button :submit %>
+<% end %>

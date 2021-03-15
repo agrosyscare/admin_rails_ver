@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :floors
   resources :arduinos
   resources :sensors
-  resources :users, only: [:index]
+  resources :users, only: [:index, :edit, :show, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
