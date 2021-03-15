@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <%= link_to sensor.model, sensor %>
+  </div>
+  <div class="card-body">
+    <%= sensor.environmental_condition.name %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_sensor_path(sensor) %>
+    <%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

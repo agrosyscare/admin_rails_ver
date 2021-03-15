@@ -8,6 +8,7 @@ class ArduinosController < ApplicationController
 
   # GET /arduinos/1 or /arduinos/1.json
   def show
+    @sensors = @arduino.sensors
   end
 
   # GET /arduinos/new

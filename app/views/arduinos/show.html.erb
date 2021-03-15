@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Model:</strong>
   <%= @arduino.model %>
 </p>
-
 <p>
   <strong>Serial:</strong>
   <%= @arduino.serial %>
 </p>
-
 <%= link_to 'Edit', edit_arduino_path(@arduino) %> |
 <%= link_to 'Back', arduinos_path %>
+<p>
+  <%= link_to 'Add Sensor', new_sensor_path(arduino_id: @arduino.id) %>
+</p>
+<div class="row">
+  <div class="col-lg-6">
+    <% @sensors.each do |sensor| %>
+      <%= render 'sensors/sensor', sensor: sensor %>
+    <% end %>
+  </div>
+</div>
