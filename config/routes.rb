@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :greenhouses
       resources :temperature_readings
       resources :humidity_readingss
       resources :root_moisture_readingss

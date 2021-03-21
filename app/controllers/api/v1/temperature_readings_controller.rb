@@ -1,7 +1,9 @@
 module Api
   module V1
-    class TemperatureReadingsController < ActionController::Base
+    class TemperatureReadingsController < ApiController
       def index
+        temperature_readings = TemperatureReading.all
+        render json: temperature_readings
       end
 
       def create
