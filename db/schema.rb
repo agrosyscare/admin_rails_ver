@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_231016) do
+ActiveRecord::Schema.define(version: 2021_03_21_023754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 2021_03_14_231016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "environmental_settings", force: :cascade do |t|
+    t.decimal "min_value", precision: 5, scale: 2
+    t.decimal "max_value", precision: 5, scale: 2
+    t.bigint "environmental_conditions_id", null: false
+    t.bigint "floor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["environmental_conditions_id"], name: "index_environmental_settings_on_environmental_conditions_id"
+    t.index ["floor_id"], name: "index_environmental_settings_on_floor_id"
+  end
+
   create_table "floors", force: :cascade do |t|
     t.string "name"
     t.string "plant_type"
@@ -63,6 +74,15 @@ ActiveRecord::Schema.define(version: 2021_03_14_231016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "humidity_readings", force: :cascade do |t|
+    t.decimal "reading", precision: 5, scale: 2
+    t.string "status"
+    t.bigint "sensor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sensor_id"], name: "index_humidity_readings_on_sensor_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -71,6 +91,15 @@ ActiveRecord::Schema.define(version: 2021_03_14_231016) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "root_moisture_readings", force: :cascade do |t|
+    t.decimal "reading", precision: 5, scale: 2
+    t.string "status"
+    t.bigint "sensor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sensor_id"], name: "index_root_moisture_readings_on_sensor_id"
   end
 
   create_table "sensors", force: :cascade do |t|
@@ -82,6 +111,15 @@ ActiveRecord::Schema.define(version: 2021_03_14_231016) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["arduino_id"], name: "index_sensors_on_arduino_id"
     t.index ["environmental_condition_id"], name: "index_sensors_on_environmental_condition_id"
+  end
+
+  create_table "temperature_readings", force: :cascade do |t|
+    t.decimal "reading", precision: 5, scale: 2
+    t.string "status"
+    t.bigint "sensor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sensor_id"], name: "index_temperature_readings_on_sensor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -114,7 +152,12 @@ ActiveRecord::Schema.define(version: 2021_03_14_231016) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "environmental_settings", "environmental_conditions", column: "environmental_conditions_id"
+  add_foreign_key "environmental_settings", "floors"
   add_foreign_key "floors", "greenhouses"
+  add_foreign_key "humidity_readings", "sensors"
+  add_foreign_key "root_moisture_readings", "sensors"
   add_foreign_key "sensors", "arduinos"
   add_foreign_key "sensors", "environmental_conditions"
+  add_foreign_key "temperature_readings", "sensors"
 end

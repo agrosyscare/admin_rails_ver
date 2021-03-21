@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reading: 
+  precision: 
+  scale: 
+  status: MyString
+  sensor: one
+
+two:
+  reading: 
+  precision: 
+  scale: 
+  status: MyString
+  sensor: two
