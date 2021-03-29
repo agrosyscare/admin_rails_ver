@@ -1,0 +1,16 @@
+<h1>Index Environmental Settings</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @environmental_conditions.each do |ec| %>
+      <tr>
+        <td><%= ec.name %></td>
+      </tr>
+      <%  %>
+    <% end %>
+  </tbody>
+</table>

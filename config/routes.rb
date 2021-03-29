@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :arduinos
   resources :sensors
   resources :users, only: [:index, :edit, :show, :update]
+  resources :environmental_settings
 
   namespace :api do
     namespace :v1 do
