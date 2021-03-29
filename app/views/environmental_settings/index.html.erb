@@ -1,16 +1,23 @@
 <h1>Index Environmental Settings</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Variable</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @environmental_conditions.each do |ec| %>
+<%= simple_form_for @environmental_settings do |f|%>
+  <table>
+    <thead>
       <tr>
-        <td><%= ec.name %></td>
+        <th>Variable</th>
+        <th>Valor mínimo</th>
+        <th>Valor máximo</th>
       </tr>
-      <%  %>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @environmental_conditions.each do |ec| %>
+        <tr>
+          <td><%= ec.name %></td>
+          <td><%= f.input :min_value, label: false %></td>
+          <td><%= f.input :max_value, label: false %></td>
+          <td><%= f.input :environmental_condition_id, as: :hidden, input_html: { value: ec.id } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.button :submit %>
+<% end %>
