@@ -48,13 +48,10 @@ ActiveRecord::Schema.define(version: 2021_03_21_023754) do
   end
 
   create_table "environmental_settings", force: :cascade do |t|
-    t.decimal "min_value", precision: 5, scale: 2
-    t.decimal "max_value", precision: 5, scale: 2
-    t.bigint "environmental_conditions_id", null: false
+    t.jsonb "settings", default: "{}", null: false
     t.bigint "floor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["environmental_conditions_id"], name: "index_environmental_settings_on_environmental_conditions_id"
     t.index ["floor_id"], name: "index_environmental_settings_on_floor_id"
   end
 
@@ -152,7 +149,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_023754) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "environmental_settings", "environmental_conditions", column: "environmental_conditions_id"
   add_foreign_key "environmental_settings", "floors"
   add_foreign_key "floors", "greenhouses"
   add_foreign_key "humidity_readings", "sensors"

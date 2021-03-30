@@ -4,6 +4,9 @@ class EnvironmentalSettingsController < ApplicationController
     @environmental_settings = EnvironmentalSetting.new
   end
 
+  def store
+  end
+  
   private
 
   def environmental_setting_params
