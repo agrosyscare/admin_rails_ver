@@ -1,5 +1,5 @@
-class EnvironmentalConditionForm
-  def self.transform(options = {})
+class ReadingForm
+  def self.transform options = {}
     attributes = {}
 
     attributes[:reading] = options[:reading] if options[:reading].present?

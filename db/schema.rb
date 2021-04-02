@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_023754) do
   end
 
   create_table "environmental_settings", force: :cascade do |t|
-    t.jsonb "settings", default: "{}", null: false
+    t.jsonb "config", default: {}, null: false
     t.bigint "floor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

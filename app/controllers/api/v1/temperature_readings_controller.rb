@@ -2,7 +2,7 @@ module Api
   module V1
     class TemperatureReadingsController < ApiController
       def create
-        temperature_reading = TemperatureReading.new(EnvironmentalConditionForm.transform(temperature_reading_params))
+        temperature_reading = TemperatureReading.new(ReadingForm.transform(temperature_reading_params))
 
         if temperature_reading.save
           render json: temperature_reading, status: :ok

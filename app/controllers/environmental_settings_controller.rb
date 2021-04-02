@@ -1,15 +1,37 @@
 class EnvironmentalSettingsController < ApplicationController
-  def index
-    @environmental_conditions = EnvironmentalCondition.all
-    @environmental_settings = EnvironmentalSetting.new
+  before_action :set_settings
+  before_action :set_environmental_conditions
+
+  def edit
   end
 
-  def store
+  def update
+    respond_to do |format|
+      if @environmental_setting.update(EnvironmentalSettingForm.transform(environmental_setting_params))
+        format.html { redirect_to floors_path }
+      else
+        format.html { render :edit }
+      end
+    end
   end
-  
+
   private
 
   def environmental_setting_params
-    params.require(:environmental_setting).permit(:min_value, :max_value, :floor_id, :environmental_condition_id)
+    params.permit(
+      environmental_setting: [
+        :floor_id,
+        EnvironmentalCondition.pluck(:id).collect { |i| "min_value_#{i}" },
+        EnvironmentalCondition.pluck(:id).collect { |i| "max_value_#{i}" }
+      ]
+    )
+  end
+
+  def set_settings
+    @environmental_setting = EnvironmentalSetting.find_or_create_by(floor_id: params[:id])
+  end
+
+  def set_environmental_conditions
+    @environmental_conditions = EnvironmentalCondition.all
   end
 end

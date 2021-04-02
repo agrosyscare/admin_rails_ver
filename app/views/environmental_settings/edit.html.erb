@@ -1,0 +1,23 @@
+<h1>Index Environmental Settings</h1>
+<%= simple_form_for @environmental_setting do |f|%>
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Valor mínimo</th>
+        <th>Valor máximo</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @environmental_conditions.each do |condition| %>
+      <tr>
+        <td><%= condition.name %></td>
+        <td><%= f.input "min_value_#{condition.id}", label: false %></td>
+        <td><%= f.input "max_value_#{condition.id}", label: false %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= f.input :floor_id, as: :hidden %>
+  <%= f.button :submit %>
+<% end %>
