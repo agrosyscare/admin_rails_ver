@@ -104,10 +104,12 @@ ActiveRecord::Schema.define(version: 2021_03_21_023754) do
     t.string "serial"
     t.bigint "environmental_condition_id", null: false
     t.bigint "arduino_id", null: false
+    t.bigint "floor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["arduino_id"], name: "index_sensors_on_arduino_id"
     t.index ["environmental_condition_id"], name: "index_sensors_on_environmental_condition_id"
+    t.index ["floor_id"], name: "index_sensors_on_floor_id"
   end
 
   create_table "temperature_readings", force: :cascade do |t|
@@ -155,5 +157,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_023754) do
   add_foreign_key "root_moisture_readings", "sensors"
   add_foreign_key "sensors", "arduinos"
   add_foreign_key "sensors", "environmental_conditions"
+  add_foreign_key "sensors", "floors"
   add_foreign_key "temperature_readings", "sensors"
 end
