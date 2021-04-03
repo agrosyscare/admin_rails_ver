@@ -23,7 +23,8 @@ Rails.application.routes.draw do
       resources :greenhouses
       resources :temperature_readings
       resources :humidity_readingss
-      resources :root_moisture_readingss
+      resources :root_moisture_readings
+      post 'sign_in', to: 'sessions#sign_in'
     end
   end
 
