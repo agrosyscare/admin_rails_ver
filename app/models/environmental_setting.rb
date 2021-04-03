@@ -1,6 +1,7 @@
 class EnvironmentalSetting < ApplicationRecord
   belongs_to :floor
 
+  validate :validates_condition_range
   after_initialize :setup
 
   private
@@ -14,6 +15,12 @@ class EnvironmentalSetting < ApplicationRecord
       define_singleton_method("max_value_#{condition.id}") do
         read_store_attribute(:config, "max_value_#{condition.id}")
       end
+    end
+  end
+
+  def validates_condition_range
+    if min_value_1 >= max_value_1 || min_value_2 >= max_value_2 || min_value_3 >= max_value_3
+      errors.add(:expiration_date, 'Incorrect data, try again')
     end
   end
 end
