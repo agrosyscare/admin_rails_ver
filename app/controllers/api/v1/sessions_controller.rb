@@ -1,15 +1,35 @@
 module Api
   module V1
-    class SessionsController < ApiController
-      def sign_in
-        user = User.find_by(email: params[:email])
+    class SessionsController < ActionController::API
+      class AuthenticationError < StandardError; end
 
-        if user.valid_password?(params[:password])
-          render json: { error: false, access_token: { token: 'asdasdasd' }, token_type: 'Bearer', expires_at: 'Fecha' },
-                 status: :created
-        else
-          render json: { error: true, message: 'Unauthorized' }, status: :unauthorized
-        end
+      rescue_from ActionController::ParameterMissing, with: :parameter_missing
+      rescue_from AuthenticationError, with: :handle_unauthenticated
+
+      def login
+        raise AuthenticationError unless user.valid_password?(params.require(:password))
+
+        token = AuthenticationTokenService.encode(user.id)
+
+        render json: { token: token }, status: :created
+      end
+
+      def logout
+        render json: { error: false, message: 'Successfully logged out' }
+      end
+
+      private
+
+      def user
+        @user ||= User.find_by(email: params.require(:email))
+      end
+
+      def parameter_missing(error)
+        render json: { error: error.message }, status: :unprocessable_entity
+      end
+
+      def handle_unauthenticated
+        head :unauthorized
       end
     end
   end
