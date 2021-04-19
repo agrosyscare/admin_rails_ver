@@ -11,7 +11,11 @@ module Api
 
         token = AuthenticationTokenService.encode(user.id)
 
-        render json: { token: token }, status: :created
+        render json: {
+          error: false,
+          access_token: token,
+          token_type: 'Bearer'
+        }, status: :created
       end
 
       def logout
