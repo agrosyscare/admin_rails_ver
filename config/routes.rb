@@ -21,9 +21,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :greenhouses
+      resources :floors
       resources :temperature_readings
-      resources :humidity_readingss
-      resources :root_moisture_readingss
+      resources :humidity_readings
+      resources :root_moisture_readings
+      post 'login', to: 'sessions#login'
+      delete 'logout', to: 'sessions#logout'
     end
   end
 
