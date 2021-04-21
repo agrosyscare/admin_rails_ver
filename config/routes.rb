@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       resources :humidity_readings
       resources :root_moisture_readings
       post 'login', to: 'sessions#login'
-      delete 'logout', to: 'sessions#logout'
+      get 'logout', to: 'sessions#logout'
+      post 'fcm/token', to: 'firebase#update'
     end
   end
 
