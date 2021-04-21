@@ -26,13 +26,6 @@ module Api
         params.permit(:reading, :status, :sensor_id)
       end
 
-      def send_notification(reading)
-        condition = Sensor.find(reading.sensor_id).environmental_condition.name
-        floor_name = Sensor.find(reading.sensor_id).floor.name
-        status = reading.status
-
-        FcmService.send(condition, floor_name, status)
-      end
     end
   end
 end
