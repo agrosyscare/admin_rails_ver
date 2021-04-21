@@ -11,6 +11,7 @@ module Api
 
       def create
         temperature_reading = TemperatureReading.new(ReadingForm.transform(temperature_reading_params))
+        send_notification(temperature_reading) if temperature_reading.status != 'Normal'
 
         if temperature_reading.save
           render json: temperature_reading, status: :ok
@@ -24,6 +25,7 @@ module Api
       def temperature_reading_params
         params.permit(:reading, :status, :sensor_id)
       end
+
     end
   end
 end

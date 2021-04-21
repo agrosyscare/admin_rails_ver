@@ -59,6 +59,7 @@ end
 gem 'active_model_serializers'
 gem 'devise'
 gem 'faker'
+gem 'fcm'
 gem 'jwt'
 gem 'public_activity'
 gem 'pundit'

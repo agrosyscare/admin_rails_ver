@@ -12,6 +12,7 @@ module Api
 
       def create
         root_moisture_reading = RootMoistureReading.new(ReadingForm.transform(root_moisture_reading_params))
+        send_notification(root_moisture_reading) if root_moisture_reading.status != 'Normal'
 
         if root_moisture_reading.save
           render json: root_moisture_reading, status: :ok
