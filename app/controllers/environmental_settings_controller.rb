@@ -2,7 +2,7 @@ class EnvironmentalSettingsController < ApplicationController
   before_action :set_settings
   before_action :set_environmental_conditions
 
-  def edit
+  def index
   end
 
   def update
@@ -10,7 +10,7 @@ class EnvironmentalSettingsController < ApplicationController
       if @environmental_setting.update(EnvironmentalSettingForm.transform(environmental_setting_params))
         format.html { redirect_to floors_path }
       else
-        format.html { render :edit }
+        format.html { render :index }
       end
     end
   end
@@ -28,7 +28,7 @@ class EnvironmentalSettingsController < ApplicationController
   end
 
   def set_settings
-    @environmental_setting = EnvironmentalSetting.find_or_create_by(floor_id: params[:id])
+    @environmental_setting = EnvironmentalSetting.find_or_create_by(floor_id: params[:floor_id])
   end
 
   def set_environmental_conditions

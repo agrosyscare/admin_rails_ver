@@ -8,12 +8,8 @@ Rails.application.routes.draw do
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   resources :greenhouses
-  resources :floors do
-    member do
-      resources :environmental_settings
-      # patch 'settings', to: 'environmental_settings#update', as: :update_settings
-    end
-  end
+  resources :environmental_settings, only: %i[index update]
+  resources :floors
   resources :arduinos
   resources :sensors
   resources :users, only: %i[index edit show update]

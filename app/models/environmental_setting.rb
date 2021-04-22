@@ -1,7 +1,7 @@
 class EnvironmentalSetting < ApplicationRecord
   belongs_to :floor
 
-  # validate :validates_condition_range
+  validate :validates_condition_range, on: :update
   after_initialize :setup
 
   private

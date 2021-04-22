@@ -1,5 +1,5 @@
 <h1>Index Environmental Settings</h1>
-<%= simple_form_for @environmental_setting do |f|%>
+<%= simple_form_for @environmental_setting, url: environmental_setting_path(@environmental_setting, floor_id: params[:floor_id]), method: :patch do |f|%>
   <table>
     <thead>
       <tr>
