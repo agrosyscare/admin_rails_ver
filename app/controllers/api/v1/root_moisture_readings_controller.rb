@@ -11,11 +11,15 @@ module Api
       end
 
       def create
-        root_moisture_reading = RootMoistureReading.new(ReadingForm.transform(root_moisture_reading_params))
-        send_notification(root_moisture_reading) if root_moisture_reading.status != 'Normal'
+        if Sensor.find(params[:sensor_id]).environmental_condition.name == 'Humedad Radicular'
+          root_moisture_reading = RootMoistureReading.new(ReadingForm.transform(root_moisture_reading_params))
+          send_notification(root_moisture_reading) if root_moisture_reading.status != 'Normal'
 
-        if root_moisture_reading.save
-          render json: root_moisture_reading, status: :ok
+          if root_moisture_reading.save
+            render json: root_moisture_reading, status: :ok
+          else
+            render json: { error: 'Ha habido un error' }
+          end
         else
           render json: { error: 'Ha habido un error' }
         end
