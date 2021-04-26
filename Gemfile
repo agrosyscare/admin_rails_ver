@@ -57,9 +57,11 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'active_model_serializers'
+gem 'chartkick'
 gem 'devise'
 gem 'faker'
 gem 'fcm'
+gem 'groupdate'
 gem 'jwt'
 gem 'public_activity'
 gem 'pundit'

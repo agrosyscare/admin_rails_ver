@@ -26,3 +26,6 @@ import "@fortawesome/fontawesome-free/css/all"
 
 // Another files
 require("scss/application.scss")
+
+// Chartkick
+require("chartkick/chart.js")
