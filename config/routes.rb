@@ -6,14 +6,19 @@ Rails.application.routes.draw do
   get 'home/activity'
   get 'home/index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
-  get 'greenhouses_chart', to: 'home#charts'
 
   namespace 'charts' do
-    get 'filter'
-    get 'floors_second'
+    get 'temperatures'
+    get 'humidities'
+    get 'root_moistures'
   end
 
-  resources :greenhouses
+  resources :greenhouses do
+    member do
+      get :charts
+    end
+  end
+
   resources :environmental_settings, only: %i[index update]
   resources :floors
   resources :arduinos

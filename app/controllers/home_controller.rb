@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @activities = PublicActivity::Activity.all
   end
 
-  def charts
+  def reports
   end
+
 end

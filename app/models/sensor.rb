@@ -4,4 +4,6 @@ class Sensor < ApplicationRecord
   belongs_to :floor
 
   has_many :temperature_readings
+  has_many :humidity_readings
+  has_many :root_moisture_readings
 end

@@ -1,9 +1,0 @@
-<h1>Charts</h1>
-
-<h3>Filtros</h3>
-
-<%= simple_form_for @form, url: charts_filter_path, remote: true do |f| %>
-  <%= f.input :greenhouse, collection: Greenhouse.all, required: false, include_blank: false %>
-<% end %>
-
-<%= render 'home/graph' %>
