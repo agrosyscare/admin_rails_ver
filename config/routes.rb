@@ -7,7 +7,18 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
-  resources :greenhouses
+  namespace 'charts' do
+    get 'temperatures'
+    get 'humidities'
+    get 'root_moistures'
+  end
+
+  resources :greenhouses do
+    member do
+      get :charts
+    end
+  end
+
   resources :environmental_settings, only: %i[index update]
   resources :floors
   resources :arduinos

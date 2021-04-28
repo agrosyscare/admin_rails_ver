@@ -16,6 +16,7 @@
       <tr>
         <td><%= greenhouse.name %></td>
         <td><%= greenhouse.description %></td>
+        <td><%= link_to 'Charts', charts_greenhouse_path(greenhouse) %></td>
         <td><%= link_to 'Show', greenhouse %></td>
         <td><%= link_to 'Edit', edit_greenhouse_path(greenhouse) %></td>
         <td><%= link_to 'Destroy', greenhouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>

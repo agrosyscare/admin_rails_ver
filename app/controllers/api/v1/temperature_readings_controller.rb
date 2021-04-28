@@ -10,11 +10,15 @@ module Api
       end
 
       def create
-        temperature_reading = TemperatureReading.new(ReadingForm.transform(temperature_reading_params))
-        send_notification(temperature_reading) if temperature_reading.status != 'Normal'
+        if Sensor.find(params[:sensor_id]).environmental_condition.name == 'Temperatura'
+          temperature_reading = TemperatureReading.new(ReadingForm.transform(temperature_reading_params))
+          send_notification(temperature_reading) if temperature_reading.status != 'Normal'
 
-        if temperature_reading.save
-          render json: temperature_reading, status: :ok
+          if temperature_reading.save
+            render json: temperature_reading, status: :ok
+          else
+            render json: { error: 'Ha habido un error' }
+          end
         else
           render json: { error: 'Ha habido un error' }
         end
@@ -25,7 +29,6 @@ module Api
       def temperature_reading_params
         params.permit(:reading, :status, :sensor_id)
       end
-
     end
   end
 end

@@ -1,0 +1,7 @@
+<h1>Graficos</h1>
+
+<%= line_chart charts_temperatures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+
+<%= line_chart charts_humidities_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+
+<%= line_chart charts_root_moistures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
