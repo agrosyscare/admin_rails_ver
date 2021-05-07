@@ -1,20 +1,31 @@
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading">Start Bootstrap </div>
+  <div class=" border-right bg-success text-white" id="sidebar-wrapper">
+    <div class="sidebar-heading bg-success">
+      <%= link_to "Agro Syscare", home_index_path, class:"text-white" %>
+    </div>
     <div class="list-group list-group-flush">
-      <%= link_to "Invernaderos", greenhouses_path, class:"list-group-item list-group-item-action bg-light" %>
-      <%= link_to "Secciones", floors_path, class:"list-group-item list-group-item-action bg-light" %>
-      <%= link_to "Arduinos", arduinos_path, class:"list-group-item list-group-item-action bg-light" %>
-      <%#= link_to "Reportería", reports_path, class:"list-group-item list-group-item-action bg-light" %>
-      <%= link_to "Usuarios", users_path, class:"list-group-item list-group-item-action bg-light" %>
-      <%= link_to "Auditoria", home_activity_path, class:"list-group-item list-group-item-action bg-light" %>
+      <%= link_to greenhouses_path, class:"list-group-item list-group-item-action border-0 bg-success text-white" do %>
+        <i class="fas fa-grip-horizontal"></i> Invernaderos
+      <% end %>
+      <%= link_to floors_path, class:"list-group-item list-group-item-action border-0 bg-success text-white" do %>
+        <i class="fas fa-leaf"></i> Secciones
+      <% end %>
+      <%= link_to arduinos_path, class:"list-group-item list-group-item-action border-0 bg-success text-white" do %>
+        <i class="fab fa-raspberry-pi"></i></i> Dispositivos IoT
+      <% end %>
+      <%= link_to users_path, class:"list-group-item list-group-item-action border-0 bg-success text-white" do %>
+        <i class="fas fa-users"></i> Usuarios
+      <% end %>
+      <%= link_to home_activity_path, class:"list-group-item list-group-item-action border-0 bg-success text-white" do %>
+        <i class="fas fa-folder"></i> Auditoria
+      <% end %>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark border-bottom bg-success text-white">
       <button id="menu-toggle">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,12 +35,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.email %>
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle fa-lgx"></i>
+                <%= current_user.email %>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to link_to 'Account settings', edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+            <div class="dropdown-menu dropdown-menu-right bg-success" aria-labelledby="navbarDropdown">
+              <%= link_to edit_user_registration_path, class: "dropdown-item bg-success text-white" do %>
+                <i class="fas fa-user-cog"></i> Account settings
+              <% end %>
+              <%= link_to destroy_user_session_path, class: "dropdown-item bg-success text-white", method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i> Logout
+              <% end %>
             </div>
           </li>
         </ul>
