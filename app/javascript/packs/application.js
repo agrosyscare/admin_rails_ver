@@ -15,6 +15,12 @@ ActiveStorage.start()
 // CSS
 import 'scss/application'
 
+// Datatables
+require("datatables.net-bs4")(window, $);
+require("datatables.net-responsive-bs4")(window, $);
+require("datatables.net-buttons-bs4")(window, $);
+require("datatables.net-select-bs4")(window, $);
+
 // JS
 require("packs/navbar")
 
@@ -29,3 +35,5 @@ require("scss/application.scss")
 
 // Chartkick
 require("chartkick/chart.js")
+
+

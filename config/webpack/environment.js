@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const datatables = require('./loaders/datatables')
 
 const webpack = require('webpack')
 environment.plugins.append('Provide',
@@ -8,4 +9,6 @@ environment.plugins.append('Provide',
     Popper: ['popper.js', 'default']
   })
 )
+environment.loaders.append('datatables', datatables)
+
 module.exports = environment
