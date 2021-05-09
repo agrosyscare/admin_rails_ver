@@ -23,6 +23,7 @@ require("datatables.net-select-bs4")(window, $);
 
 // JS
 require("packs/navbar")
+require("packs/datatables")
 
 // Bootstrap
 import 'bootstrap'
@@ -35,19 +36,3 @@ require("scss/application.scss")
 
 // Chartkick
 require("chartkick/chart.js")
-
-$(document).on('turbolinks:load', () => {
-  // placeholder example for datatable with checkboxes
-  $('#dttb').dataTable({
-    processing: true,
-    serverSide: true,
-    ajax: {
-      url: $('#dttb').data('source')
-    },
-    pagingType: "full_numbers",
-    columns: [
-      {data: "name"},
-      {data: "description"}
-    ]
-  });
-})
