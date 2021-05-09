@@ -2,12 +2,12 @@
 
 <h1>Greenhouses</h1>
 
-<table id="dttb" data-source="<%= greenhouses_path(format: :json) %>">
+<table id="greenhouses-dttb" data-source="<%= datatable_greenhouses_path(format: :json) %>">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
+      <th data-data='id'>ID</th>
+      <th data-data='name'>Name</th>
+      <th data-data='description'>Description</th>
     </tr>
   </thead>
   <tbody>

@@ -1,4 +1,4 @@
-class GreenhouseDatatable < AjaxDatatablesRails::ActiveRecord
+class GreenhouseDatatable < ApplicationDatatable
 
   def view_columns
     @view_columns ||= {
@@ -13,13 +13,9 @@ class GreenhouseDatatable < AjaxDatatablesRails::ActiveRecord
       {
         id: record.id,
         name: record.name,
-        description: record.description
+        description: record.description,
+        DT_RowId: record.id
       }
     end
   end
-
-  def get_raw_records
-    Greenhouse.all
-  end
-
 end

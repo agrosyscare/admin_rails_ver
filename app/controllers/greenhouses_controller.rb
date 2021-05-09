@@ -3,9 +3,13 @@ class GreenhousesController < ApplicationController
 
   # GET /greenhouses or /greenhouses.json
   def index
+  end
+
+  def datatable
+    @greenhouses = Greenhouse.all
+
     respond_to do |format|
-      format.html
-      format.json { render json: GreenhouseDatatable.new(params) }
+      format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses, view_context: view_context) }
     end
   end
 

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     get 'root_moistures'
   end
 
-  resources :greenhouses do
+  concern :with_datatable do
+    post 'datatable', on: :collection
+  end
+
+  resources :greenhouses, concerns: [:with_datatable] do
     member do
       get :charts
     end
