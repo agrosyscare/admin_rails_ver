@@ -57,6 +57,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'active_model_serializers'
+gem 'ajax-datatables-rails'
 gem 'chartkick'
 gem 'devise'
 gem 'faker'
