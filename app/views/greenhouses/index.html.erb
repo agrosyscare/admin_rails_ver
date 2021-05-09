@@ -2,17 +2,19 @@
 
 <h1>Greenhouses</h1>
 
-<table id="greenhouses-dttb" data-source="<%= datatable_greenhouses_path(format: :json) %>">
-  <thead>
-    <tr>
-      <th data-data='id'>ID</th>
-      <th data-data='name'>Name</th>
-      <th data-data='description'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+<div class="table-responsive-sm">
+  <table class="table table-bordered table-hover table-striped" id="greenhouses-dttb" data-source="<%= datatable_greenhouses_path(format: :json) %>">
+    <thead>
+      <tr>
+        <th data-data='id'>ID</th>
+        <th data-data='name'>Name</th>
+        <th data-data='description'>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
 
 <%
 =begin%>
