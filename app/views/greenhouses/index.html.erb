@@ -2,6 +2,11 @@
 
 <h1>Greenhouses</h1>
 
+<%= link_to 'New Greenhouse', new_greenhouse_path %>
+
+<div class="card-body border border-primary rounded advanced_options mb-4 d-none">
+</div>
+
 <div class="table-responsive-sm">
   <table class="table table-bordered table-hover table-striped" id="greenhouses-dttb" data-source="<%= datatable_greenhouses_path(format: :json) %>">
     <thead>
@@ -9,40 +14,10 @@
         <th data-data='id'>ID</th>
         <th data-data='name'>Name</th>
         <th data-data='description'>Description</th>
+        <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
       </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
 </div>
-
-<%
-=begin%>
- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @greenhouses.each do |greenhouse| %>
-      <tr>
-        <td><%= greenhouse.name %></td>
-        <td><%= greenhouse.description %></td>
-        <td><%= link_to 'Charts', charts_greenhouse_path(greenhouse) %></td>
-        <td><%= link_to 'Show', greenhouse %></td>
-        <td><%= link_to 'Edit', edit_greenhouse_path(greenhouse) %></td>
-        <td><%= link_to 'Destroy', greenhouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%
-=end%>
-
-<br>
-
-<%= link_to 'New Greenhouse', new_greenhouse_path %>

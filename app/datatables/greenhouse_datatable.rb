@@ -4,7 +4,8 @@ class GreenhouseDatatable < ApplicationDatatable
     @view_columns ||= {
       id: { source: "Greenhouse.id", cond: :eq },
       name: { source: "Greenhouse.name", cond: :like },
-      description: { source: "Greenhouse.description", cond: :like }
+      description: { source: "Greenhouse.description", cond: :like },
+      buttons: { sercheable: false, orderable: false }
     }
   end
 
@@ -14,8 +15,11 @@ class GreenhouseDatatable < ApplicationDatatable
         id: record.id,
         name: record.name,
         description: record.description,
-        DT_RowId: record.id
+        buttons: record.decorate.dt_actions,
+
+        DT_RowClass: dt_row_class(record)
       }
     end
   end
+
 end

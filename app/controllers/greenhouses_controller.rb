@@ -9,7 +9,7 @@ class GreenhousesController < ApplicationController
     @greenhouses = Greenhouse.all
 
     respond_to do |format|
-      format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses, view_context: view_context) }
+      format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses) }
     end
   end
 
@@ -66,7 +66,6 @@ class GreenhousesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_greenhouse
-      binding.pry
       @greenhouse = Greenhouse.find(params[:id])
     end
 
