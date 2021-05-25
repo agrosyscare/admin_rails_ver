@@ -49,4 +49,15 @@ document.addEventListener("turbolinks:load", function() {
       type: "POST",
     },
   });
+
+  $("#floors-dttb").DataTable({
+    processing: true,
+    serverSide: true,
+    order: [[0, "asc"]],
+    ajax: {
+      url: $("#floors-dttb").data("source"),
+      type: "POST",
+    },
+  });
+
 });

@@ -23,11 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :arduinos, concerns: [:with_datatable]
   resources :environmental_settings, only: %i[index update]
-  resources :floors
-  resources :arduinos
-  resources :sensors
+  resources :floors, concerns: [:with_datatable]
   resources :users, only: %i[index edit show update]
+  resources :sensors
 
   namespace :api do
     namespace :v1 do
