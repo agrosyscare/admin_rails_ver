@@ -3,7 +3,14 @@ class ArduinosController < ApplicationController
 
   # GET /arduinos or /arduinos.json
   def index
+  end
+
+  def datatable
     @arduinos = Arduino.all
+
+    respond_to do |format|
+      format.json { render json: ArduinoDatatable.new(params, collection: @arduinos) }
+    end
   end
 
   # GET /arduinos/1 or /arduinos/1.json

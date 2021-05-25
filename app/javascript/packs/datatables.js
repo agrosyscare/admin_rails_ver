@@ -60,4 +60,14 @@ document.addEventListener("turbolinks:load", function() {
     },
   });
 
+  $("#arduinos-dttb").DataTable({
+    processing: true,
+    serverSide: true,
+    order: [[0, "asc"]],
+    ajax: {
+      url: $("#arduinos-dttb").data("source"),
+      type: "POST",
+    },
+  });
+
 });
