@@ -70,4 +70,14 @@ document.addEventListener("turbolinks:load", function() {
     },
   });
 
+  $("#users-dttb").DataTable({
+    processing: true,
+    serverSide: true,
+    order: [[0, "asc"]],
+    ajax: {
+      url: $("#users-dttb").data("source"),
+      type: "POST",
+    },
+  });
+
 });
