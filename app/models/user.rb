@@ -7,6 +7,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable
 
+  validates :rut, presence: true, run: {uniqueness: false}, if: Proc.new { |u| u.rut.present? || !u.super_admin? }
+
+  def rut=(value)
+    super(Run.format(value))
+  end
+
   def assign_default_role
     if User.count == 1
       add_role(:super_admin) if roles.blank?
