@@ -2,33 +2,22 @@
 
 <h1>Floors</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Plant type</th>
-      <th>Greenhouse</th>
-      <th>Greenhouse id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @floors.each do |floor| %>
-      <tr>
-        <td><%= floor.id %></td>
-        <td><%= floor.name %></td>
-        <td><%= floor.plant_type %></td>
-        <td><%= floor.greenhouse_id %></td>
-        <td><%= link_to 'Show', floor %></td>
-        <td><%= link_to 'Edit', edit_floor_path(floor) %></td>
-        <td><%= link_to 'Settings', environmental_settings_path(floor_id: floor.id) %></td>
-        <td><%= link_to 'Destroy', floor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Floor', new_floor_path %>
+
+<div class="card-body border border-primary rounded advanced_options mb-4 d-none">
+</div>
+
+<div class="table-responsive-sm">
+  <table class="table table-bordered table-hover table-striped" id="floors-dttb" data-source="<%= datatable_floors_path(format: :json) %>">
+    <thead>
+      <tr>
+        <th data-data='id'>ID</th>
+        <th data-data='name'>Name</th>
+        <th data-data='plant_type'>Plant Type</th>
+        <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

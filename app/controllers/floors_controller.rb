@@ -1,9 +1,16 @@
 class FloorsController < ApplicationController
-  before_action :set_floor, only: %i[ show edit update destroy ]
+  before_action :set_floor, only: [:show, :edit, :update, :destroy]
 
   # GET /floors or /floors.json
   def index
+  end
+
+  def datatable
     @floors = Floor.all
+
+    respond_to do |format|
+      format.json { render json: FloorDatatable.new(params, collection: @floors) }
+    end
   end
 
   # GET /floors/1 or /floors/1.json

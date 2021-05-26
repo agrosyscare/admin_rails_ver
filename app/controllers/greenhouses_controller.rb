@@ -1,9 +1,16 @@
 class GreenhousesController < ApplicationController
-  before_action :set_greenhouse, only: %i[ show edit update destroy ]
+  before_action :set_greenhouse, only: [:show, :edit, :update, :destroy]
 
   # GET /greenhouses or /greenhouses.json
   def index
+  end
+
+  def datatable
     @greenhouses = Greenhouse.all
+
+    respond_to do |format|
+      format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses) }
+    end
   end
 
   # GET /greenhouses/1 or /greenhouses/1.json

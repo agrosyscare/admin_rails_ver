@@ -13,17 +13,21 @@ Rails.application.routes.draw do
     get 'root_moistures'
   end
 
-  resources :greenhouses do
+  concern :with_datatable do
+    post 'datatable', on: :collection
+  end
+
+  resources :greenhouses, concerns: [:with_datatable] do
     member do
       get :charts
     end
   end
 
+  resources :arduinos, concerns: [:with_datatable]
   resources :environmental_settings, only: %i[index update]
-  resources :floors
-  resources :arduinos
+  resources :floors, concerns: [:with_datatable]
+  resources :users, only: %i[index edit show update], concerns: [:with_datatable]
   resources :sensors
-  resources :users, only: %i[index edit show update]
 
   namespace :api do
     namespace :v1 do
