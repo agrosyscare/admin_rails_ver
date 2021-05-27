@@ -21,10 +21,6 @@ require("datatables.net-buttons-bs4")(window, $);
 require("datatables.net-responsive-bs4")(window, $);
 require("datatables.net-select-bs4")(window, $);
 
-// JS
-require("packs/navbar")
-require("packs/datatables")
-
 // Bootstrap
 import 'bootstrap'
 
@@ -36,3 +32,9 @@ require("scss/application.scss")
 
 // Chartkick
 require("chartkick/chart.js")
+
+// Custom JS
+require('packs/phone')
+require('packs/run_cl')
+require('packs/navbar')
+require('packs/datatables')

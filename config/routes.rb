@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :arduinos, concerns: [:with_datatable]
   resources :environmental_settings, only: %i[index update]
   resources :floors, concerns: [:with_datatable]
-  resources :users, only: %i[index edit show update], concerns: [:with_datatable]
+  resources :users, concerns: [:with_datatable]
   resources :sensors
 
   namespace :api do
