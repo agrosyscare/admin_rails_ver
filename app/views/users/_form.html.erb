@@ -1,6 +1,12 @@
 <%= user.email %>
 
 <%= simple_form_for @user do |f| %>
+  <%= f.input :rut, wrapper_html: { class: 'rut' } %>
+  <%= f.input :firstname, wrapper_html: { class: 'firstname' } %>
+  <%= f.input :middlename, wrapper_html: { class: 'middlename' } %>
+  <%= f.input :lastname, wrapper_html: { class: 'lastname' } %>
+  <%= f.input :mothername, wrapper_html: { class: 'mothername' } %>
+  <%= f.input :phone, wrapper_html: { class: 'phone' } %>
   <%= f.input :email, wrapper_html: { class: 'email' } %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
