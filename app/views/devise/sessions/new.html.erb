@@ -3,15 +3,20 @@
     <div class="card login-card">
       <div class="row no-gutters">
         <div class="col-md-5">
-          <img src="assets/images/login.jpg" alt="login" class="login-card-img">
-          <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
-            Free <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">Bootstrap dashboard templates</a> from Bootstrapdash
-          </p>
+          <%
+=begin%>
+ <img src="assets/images/login.jpg" alt="login" class="login-card-img"> 
+<%
+=end%>
         </div>
         <div class="col-md-7">
           <div class="card-body">
             <div class="brand-wrapper">
-              <img src="assets/images/logo.svg" alt="logo" class="logo">
+              <%
+=begin%>
+ <img src="assets/images/logo.svg" alt="logo" class="logo"> 
+<%
+=end%>
             </div>
             <p class="login-card-description">Sign into your account</p>
 
@@ -24,7 +29,7 @@
                 <%= f.input :password, required: false, input_html: { autocomplete: "current-password", class:"form-control", placeholder: "Contraseña" } %>
               </div>
               <div class="form-group">
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                <%= f.input :remember_me, input_html: { class:"m-1" }, as: :boolean if devise_mapping.rememberable?  %>
               </div>
             </div>
 
@@ -41,3 +46,5 @@
     </div>
   </div>
 </main>
+
+
