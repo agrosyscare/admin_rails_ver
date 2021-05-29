@@ -17,6 +17,7 @@
 
 <body>
   <div class="wrapper ">
+    <% if current_user %>
     <%= render "layouts/partials/sidebar" %>
     <div class="main-panel">
       <%= render "layouts/partials/navbar" %>
@@ -27,6 +28,13 @@
       </div>
       <%= render "layouts/partials/footer" %>
     </div>
+    <% else %>
+    <div class="content">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </body>
 
