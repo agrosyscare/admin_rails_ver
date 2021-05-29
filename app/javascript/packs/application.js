@@ -36,5 +36,4 @@ require("chartkick/chart.js")
 // Custom JS
 require('packs/phone')
 require('packs/run_cl')
-require('packs/navbar')
 require('packs/datatables')
