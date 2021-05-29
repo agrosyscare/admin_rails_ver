@@ -13,10 +13,6 @@ class GreenhousesController < ApplicationController
     end
   end
 
-  # GET /greenhouses/1 or /greenhouses/1.json
-  def show
-  end
-
   # GET /greenhouses/new
   def new
     @greenhouse = Greenhouse.new

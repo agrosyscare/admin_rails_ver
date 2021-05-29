@@ -1,9 +1,11 @@
 <div class="card">
   <div class="card-header card-header-success">
-    <h4 class="card-title">Greenhouses</h4>
+    <h4 class="card-title ">
+      Secciones
+      <%= link_to_new new_floor_path %>
+    </h4>
   </div>
   <div class="card-body">
-    <%= link_to_new new_floor_path %>
     <div class="table-responsive">
       <table class="table table-hover" id="floors-dttb" data-source="<%= datatable_floors_path(format: :json) %>">
         <thead>

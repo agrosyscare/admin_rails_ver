@@ -1,9 +1,11 @@
 <div class="card">
   <div class="card-header card-header-success">
-    <h4 class="card-title">IoT Devices</h4>
+    <h4 class="card-title ">
+      Dispositivos IoT
+      <%= link_to_new new_arduino_path %>
+    </h4>
   </div>
   <div class="card-body">
-    <%= link_to_new new_arduino_path %>
     <div class="table-responsive">
       <table class="table table-hover" id="arduinos-dttb" data-source="<%= datatable_arduinos_path(format: :json) %>">
         <thead>

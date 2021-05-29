@@ -1,17 +1,17 @@
 module ApplicationHelper
-  # def link_to_list(url, options={})
-  #   title = options[:title] || t(:list, scope: [:views, :buttons])
-  #   icon = options[:icon] || 'fas fa-list'
-  #   link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-  #     content_tag(:i, '', class: "#{icon} px-1")
-  #   end
-  # end
+  def link_to_back(url, options={})
+    title = options[:title] || t(:back, scope: [:views, :buttons])
+    icon = options[:icon] || 'arrow_back'
+    link_to url, data: {toggle: "tooltip", animation: false}, title: title do
+      content_tag(:i, icon, class: "material-icons pull-right")
+    end
+  end
 
   def link_to_chart(url, options={})
     title = options[:title] || t(:list, scope: [:views, :buttons])
     icon = options[:icon] || 'auto_graph'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-      content_tag(:i, icon, class: "material-icons", style: "color:purple")
+      content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")
     end
   end
 
@@ -19,7 +19,7 @@ module ApplicationHelper
     title = options[:title] || t(:new, scope: [:views, :buttons])
     icon = options[:icon] || 'add'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-      content_tag(:i, icon, class: "material-icons")
+      content_tag(:i, icon, class: "material-icons pull-right")
     end
   end
 
@@ -51,14 +51,6 @@ module ApplicationHelper
   # def link_to_reload(url, options={})
   #   title = options[:title] || t(:reload, scope: [:views, :buttons])
   #   icon = options[:icon] || 'fas fa-sync'
-  #   link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-  #     content_tag(:i, '', class: "#{icon} px-1")
-  #   end
-  # end
-
-  # def link_to_back(url, options={})
-  #   title = options[:title] || t(:back, scope: [:views, :buttons])
-  #   icon = options[:icon] || 'fas fa-chevron-left'
   #   link_to url, data: {toggle: "tooltip", animation: false}, title: title do
   #     content_tag(:i, '', class: "#{icon} px-1")
   #   end

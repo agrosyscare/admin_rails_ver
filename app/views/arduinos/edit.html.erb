@@ -1,6 +1,11 @@
-<h1>Editing Arduino</h1>
-
-<%= render 'form', arduino: @arduino %>
-
-<%= link_to 'Show', @arduino %> |
-<%= link_to 'Back', arduinos_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      Editing Arduino
+      <%= link_to_back arduinos_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', arduino: @arduino %>
+  </div>
+</div>

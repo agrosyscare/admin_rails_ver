@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     post 'datatable', on: :collection
   end
 
-  resources :greenhouses, concerns: [:with_datatable] do
+  resources :greenhouses, except: :show, concerns: [:with_datatable] do
     member do
       get :charts
     end

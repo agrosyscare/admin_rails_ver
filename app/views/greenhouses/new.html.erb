@@ -1,5 +1,12 @@
-<h1>New Greenhouse</h1>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      New Greenhouse
+      <%= link_to_back greenhouses_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', greenhouse: @greenhouse %>
+  </div>
+</div>
 
-<%= render 'form', greenhouse: @greenhouse %>
-
-<%= link_to 'Back', greenhouses_path %>
