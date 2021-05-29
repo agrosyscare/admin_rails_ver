@@ -7,28 +7,19 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'stylesheets/application'
+import 'bootstrap'
+import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-// CSS
-import 'scss/application'
 
 // Datatables
 require("datatables.net-bs4")(window, $);
 require("datatables.net-buttons-bs4")(window, $);
 require("datatables.net-responsive-bs4")(window, $);
 require("datatables.net-select-bs4")(window, $);
-
-// Bootstrap
-import 'bootstrap'
-
-// Fontawesome
-import "@fortawesome/fontawesome-free/css/all"
-
-// Another files
-require("scss/application.scss")
 
 // Chartkick
 require("chartkick/chart.js")
