@@ -1,7 +1,161 @@
-<h1>Graficos</h1>
-
-<%= line_chart charts_temperatures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
-
-<%= line_chart charts_humidities_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
-
-<%= line_chart charts_root_moistures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title ">
+      Graficos
+      <%= link_to_back greenhouses_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-pills-primary flex-column">
+          <li class="nav-item"><a class="nav-link active" href="#tab1" data-toggle="tab">Temperatura</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab">Humedad Ambiental</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">Humedad Radicular</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <%= line_chart charts_temperatures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-success">
+                    <div class="card-icon">
+                      <i class="material-icons">functions</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Promedio</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-info">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_downward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Mínimo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-danger">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_upward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Máximo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <%= line_chart charts_humidities_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-success">
+                    <div class="card-icon">
+                      <i class="material-icons">functions</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Promedio</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-info">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_downward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Mínimo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-danger">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_upward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Máximo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <%= line_chart charts_root_moistures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-success">
+                    <div class="card-icon">
+                      <i class="material-icons">functions</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Promedio</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-info">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_downward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Mínimo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-danger">
+                    <div class="card-icon">
+                      <i class="material-icons">arrow_upward</i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Máximo</h4>
+                    Indicador promedio
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
