@@ -49,7 +49,7 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-$(document).ready(function() {
+$(document).on('ready', function() {
 
   $('body').bootstrapMaterialDesign();
 
@@ -63,9 +63,9 @@ $(document).ready(function() {
   md.checkSidebarImage();
 
   //    Activate bootstrap-select
-  if ($(".selectpicker").length != 0) {
-    $(".selectpicker").selectpicker();
-  }
+  // if ($(".selectpicker").length != 0) {
+  //   $(".selectpicker").selectpicker();
+  // }
 
   //  Activate the tooltips
   $('[rel="tooltip"]').tooltip();

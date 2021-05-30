@@ -24,6 +24,9 @@ require("datatables.net-select-bs4")(window, $);
 // Chartkick
 require("chartkick/chart.js")
 
+// Bootstrap-select
+require('bootstrap-select/js/bootstrap-select')
+
 // Custom JS
 require('packs/phone')
 require('packs/run_cl')

@@ -19,15 +19,14 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    binding.pry
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +52,21 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit({role_ids: []})
+    dynamic_attributes = []
+
+    unless (params[:user][:password].nil? || params[:user][:password].blank?)
+      dynamic_attributes << [:password, :password_confirmation]
+    end
+    params.require(:user).permit(
+      :rut,
+      :fistname,
+      :middlename,
+      :lastname,
+      :mothername,
+      :phone,
+      {role_ids: []},
+      *dynamic_attributes
+    )
   end
 
 end

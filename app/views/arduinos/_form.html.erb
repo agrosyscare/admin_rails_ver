@@ -1,27 +1,17 @@
-<%= form_with(model: arduino) do |form| %>
-  <% if arduino.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(arduino.errors.count, "error") %> prohibited this arduino from being saved:</h2>
-
-      <ul>
-        <% arduino.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= simple_form_for @arduino do |f| %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :model, input_html: { class: "form-control" } %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
   </div>
-
-  <div class="field">
-    <%= form.label :serial %>
-    <%= form.text_field :serial %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :serial, input_html: { class: "form-control" } %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+<%= f.button :submit, class:"btn btn-primary pull-right" %>
 <% end %>
