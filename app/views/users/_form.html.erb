@@ -1,4 +1,18 @@
 <%= simple_form_for @user do |f| %>
+
+ <% if f.object.errors.any? %>
+  <div id="error_explanation">
+   <div class="alert alert-error">
+     The form contains <%= pluralize(f.object.errors.count, "error") %>.
+   </div>
+  <ul>
+   <% f.object.errors.full_messages.each do |msg| %>
+    <li>* <%= msg %></li>
+   <% end %>
+ </ul>
+</div>
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     <div class="form-group">

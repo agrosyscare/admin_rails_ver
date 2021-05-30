@@ -17,14 +17,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # POST /users or /users.json
   def create
-    binding.pry
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
+        format.html { redirect_to users_path, notice: "User was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -38,11 +36,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
       if @user.update(user_params)
-        redirect_to users_path, notice: "User was successfully updated."
+        format.html { redirect_to users_path, notice: "User was successfully updated." }
       else
-        render :edit, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
       end
+    end
   end
 
   private
@@ -57,16 +57,17 @@ class UsersController < ApplicationController
     unless (params[:user][:password].nil? || params[:user][:password].blank?)
       dynamic_attributes << [:password, :password_confirmation]
     end
+
     params.require(:user).permit(
       :rut,
-      :fistname,
+      :firstname,
       :middlename,
       :lastname,
       :mothername,
+      :email,
       :phone,
       {role_ids: []},
       *dynamic_attributes
     )
   end
-
 end
