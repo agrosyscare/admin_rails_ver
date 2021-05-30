@@ -1,0 +1,613 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+es:
+  app_name: AgroSyscare
+
+  controllers:
+    notices:
+      created: '%{model} fue creado con éxito'
+      updated: '%{model} fue actualizado con éxito'
+      destroyed: '%{model} fue eliminado con éxito'
+      switched: '%{model} fue actualizado con éxito'
+      coupon_applied: "Se aplico el descuento"
+      coupon_not_applied: "Se mantuvo el descuento anterior"
+      coupon_not_found: "No existe el cupón o ya no esta disponible"
+      unsubscribed: '%{model} fue dado de baja con éxito'
+      optimized: '%{model} fue optimizado con éxito'
+      closed: '%{model} fue cerrado con éxito'
+      retryed: '%{model} reintento en progreso'
+      sended: '%{model} enviada con éxito'
+      not_optimized: '%{model} no se logró optimizar, por favor verifique los datos e intente denuevo o mas tarde'
+    errors:
+      not_found: No encontrado
+      cant_export: Ha ocurrido un error, por favor inténtelo de nuevo más tarde.
+
+  views:
+    weights_required: "%{name} <abbr title='al menos un peso requerido'>**</abbr>"
+    menu:
+      users: Usuarios
+      recyclables: Productos Reciclables
+      plans: Planes
+      communes: Comunas
+      coupons: Cupones
+      traceabilities: Trazabilidad
+      blocks: Bloques
+      holidays: Feriados
+      plannings: Planificaciones
+      companies: Industrial
+      vehicles: Vehículos
+      removals: Seguimiento
+      commune_requests: Solicitudes de Comunas
+      mail_registries: Correos
+      invoices: Transacciones
+      feedbacks: Tickets de soporte
+
+    buttons:
+      account: Mi Cuenta
+      add: Agregar
+      new: Nuevo
+      list: Lista
+      cancel: Cancelar
+      back: Atras
+      show: Ver
+      edit: Editar
+      destroy: Eliminar
+      reload: Recargar
+      close: Cerrar
+      save: Guardar
+      sign_in: Iniciar Sesión
+      sign_out: Cerrar Sesión
+      sign_up: Registrarse
+      forgot_pasword: ¿Olvidó su contraseña?
+      contract: Contratar
+      switch_on: Activar
+      switch_off: Desactivar
+      next: Siguiente
+      not_me: No soy yo
+      apply: Aplicar
+      add_sale_price: Agregar Precio de oferta
+      recycling_guide: Guía de Reciclaje
+      subscription: Información de facturación
+      subscribe: Cambiar Suscripción
+      resubscribe: Actualizar Información
+      unsubscribe: Dar de baja
+      add_address: Agregar Dirección
+      import: Importar
+      dispatch: Despachar
+      optimize: Optimizar
+      add_feedback: Nuevo ticket de soporte
+      retry_bill: Reintentar pago
+      send: Enviar
+      clean: Limpiar
+      filter: Filtrar
+      download_sample_import_file: Descargar archivo de ejemplo
+      new_contract: Quiero volver a contratar
+      export: Exportar
+      bulk_edit: Editar Selección
+
+    titles:
+      index: 'Listado %{model}'
+      show: 'Detalles %{model}'
+      create: 'Crear %{model}'
+      update: 'Editar %{model}'
+      destroy: 'Eliminar %{model}'
+      import: Importar
+      filters: Filtros
+      modify: 'Modificar %{model}'
+
+    confirmations:
+      destroy: ¿Esta seguro que desea eliminar este registro?
+      switch_off: ¿Esta seguro que desea desactivar este registro?
+      switch_on: ¿Esta seguro que desea activar este registro?
+      unsubscribe: ¿Esta seguro que desea dar de baja la suscipción automática?
+      sign_out: ¿Esta seguro que desea cerrar su sesión?
+
+    devise:
+      change_your_password: Cambia su contraseña
+      new_password: Nueva contraseña
+      confirm_your_new_password: Confirmar nueva contraseña
+      change_my_password: Cambiar mi contraseña
+      forgot_pasword: ¿Olvidó su contraseña?
+      send_me_reset_password_instructions: Enviarme las instrucciones de restablecer contraseña
+      sign_in: Iniciar Sesión
+      resend_confirmation_instructions: Volver a enviar las instrucciones de confirmación
+
+    texts:
+      unlimited: "<span class='text-muted'>Ilimitado</span>"
+      no_info: Sin Información
+      next_facturation_date: "Próxima fecha de facturación: "
+      price_disclaimer: El descuento será aplicado al momento de realizar el primer cargo en su suscripción
+      address2: depto
+      accept_terms_of_service: Acepto los Términos de Servicio
+      info: Información
+      addresses: Direcciones
+      zones: Zonas
+      routes: Rutas
+      itineraries: Rutas
+      services: Servicios
+      feedbacks: Canal de Comunicación
+      plannings: Planificaciones
+      report: Reporte
+      mail_registries: Correos
+      your_user_name: ¿Cuál es tu Nombre y Apellido?
+      your_user_email: ¿Cuál es tu correo electrónico?
+      your_user_phone: ¿Cuál es tu teléfono?
+      your_user_commune: ¿A qué comuna quieres que llevemos a Rembre?
+      commune_request: ¿No ves a tu comuna?  Escríbenos para que pronto la activemos.
+      no_info: No hay datos disponibles
+      feedback_types:
+        claims: Reclamo
+        congratulations: Felicitaciones
+        observations: Observaciones
+        questions: Pregunta
+      file: Archivo
+      sheet: Hoja
+      addresses: Direcciones
+      companies: Industriales
+      planning_blocks:
+        first_block: 08:30 y 11:30
+        second_block: 11:30 y 14:30
+        third_block: 14:30 y 17:30
+      selection_warning_html: "<b>Nota:</b> Solo se seleccionaron los elementos visibles en esta página de la tabla"
+      account_activities: Historial de autenticación
+      natural_person: Particular
+      closed_by: Cerrado por
+
+  activemodel:
+    models:
+      removal_filter: Filtro
+      range_filter: Filtro
+    attributes:
+      removal_filter:
+        wday: Día de la semana
+        day: Fecha
+        unrouted: Sin ruta
+      range_filter:
+        range_filter: 'Filtrar por Rango de fechas:'
+        itineraries_filter: 'Filtrar por Rutas:'
+      removal_bulk_form:
+        status: Estado
+        day: Fecha
+
+  activerecord:
+    models:
+      user: Usuario
+      recyclable: Producto Reciclable
+      plan: Plan
+      commune: Comuna
+      address: Dirección
+      contract: Contrato
+      coupon: Cupón
+      sale_price: Precio de Oferta
+      invoice: Transacción
+      traceability: Trazabilidad
+      block: Bloque
+      weekday: Día
+      holiday: Feriado
+      removal: Retiro
+      company: Empresa
+      zone: Zona
+      vehicle: Vehículo
+      planning: Planificación
+      planning_route: Ruta
+      planning_vehicle: Ruta
+      planning_removal: Servicio
+      planning_address: Servicio
+      feedback: Ticket de Soporte
+      comment: Comentario
+      commune_request: Solicitud de Comuna
+      itinerary: Ruta
+      mail_registry: Correo
+      account_activity: Historial de autenticación
+
+    attributes:
+      user:
+        id: ID Usuario
+        remember_me: Recordar
+        email: Correo Electrónico
+        password: Contraseña
+        password_confirmation: Confirmación Contraseña
+        activated_at: Fecha activación
+        name: Nombre
+        names: Nombres
+        surnames: Apellidos
+        rut: RUT
+        phone: Celular
+        addresses: Direcciones
+        groups: Grupos
+        company_addresses: Direcciones
+        company_id: Empresa
+        city_id: Ciudad
+        commune_id: Comuna
+        address_id: Dirección
+        account_activities: Historial de autenticación
+        registered_as: Forma de registro
+        address1: Dirección
+        address2: Departamento o Condominio
+        details: Detalles
+      recyclable:
+        id: ID Producto Reciclable
+        name: Nombre
+        code: Código
+        kwh: Energía
+        water: Agua consumida
+        trees: Arboles 10 m
+        co2: CO2
+        gasoline: Gasolina
+      plan:
+        id: ID Plan
+        name: Nombre
+        amount: Valor
+        iva: IVA
+        total: Total
+        periodicity: Frecuencia de Pago
+        sale_prices: Precios de Oferta
+        details: Detalles
+      commune:
+        id: ID Comuna
+        name: Nombre
+        code: Código
+        provincia: Provincia
+        region: Región
+        region_number: Numero de Región
+        active: Activo
+      address:
+        id: ID Dirección
+        address1: Dirección
+        address2: Departamento o Condominio
+        commune: Comuna
+        logistics_id: ID Logística
+        deptos: Número de departamentos
+        details: Detalles
+        itineraries: Rutas
+        zone: Zona
+        packaging_itinerary: Ruta Envases Livianos
+        glass_itinerary: Ruta Vidrio
+      contract:
+        id: ID Contrato
+        user: Usuario
+        plan: Plan
+        amount: Monto
+        discount: Descuento
+        coupon_discount: Descuento Cupón
+        sale_discount: Descuento Precio Oferta
+        total: Total
+        address: Dirección
+        removal_start_at: Fecha de inicio retiros
+        block_name: Horario estimado de retiro
+        block_id: Horario estimado de retiro
+        block: Horario estimado de retiro
+        terms_of_service: Términos de servicio
+        coupon_code: Código de Cupón
+        coupon_name: Cupón
+        new_coupon_code: Código de Cupón
+        status: Estado de la Suscripción
+        invoices: Transacciones
+        subscription_id: Suscripción
+      coupon:
+        id: ID Cupón
+        name: Nombre
+        description: Descripción
+        code: Código
+        discount_type: Tipo de Descuento
+        amount: Importe del cupón
+        starts_at: Fecha de inicio
+        expires_at: Fecha de caducidad
+        individual_use: Uso individual
+        exclude_sale_items: Excluir precios de oferta
+        usage_limit: Límite de uso por cupón
+        usage_limit_per_user: Límite de uso por usuario
+      sale_price:
+        id: ID Precio de Oferta
+        discount_type: Tipo de Descuento
+        amount: Nuevo Precio
+        starts_at: Fecha de inicio
+        expires_at: Fecha de caducidad
+        enabled: Activo
+        plan: Plan
+        plan_id: Plan
+      invoice:
+        id: ID Transacción
+        contract: Contrato
+        status: Estado
+        subscription_id: Suscripción
+        amount: Monto
+        discount: Descuento
+        coupon_discount: Descuento Cupón
+        sale_discount: Descuento Precio Oferta
+        total: Total
+        start_at: Fecha de inicio
+        finish_at: Fecha de término
+        paid_at: Fecha de pago
+        ticket_number: Número de Ticket
+        removals: Retiros
+        folio: Folio
+        pdf: Boleta
+        iva: IVA
+        complex_id: Identificador
+        payment_method: Medio de Pago
+        product: Producto
+        product_total: Valor del producto
+        commercial_comment: Comentarios (Comercial)
+        client_comment: Comentarios (Cliente)
+        refund: Devolución
+        logistics_id: ID Logística
+        old: Otro medio de pago
+      traceability:
+        id: ID Trazabilidad
+        weights: Pesos
+        commune: Comuna
+        removal_at: Fecha
+      block:
+        id: ID Bloque
+        start_time: Inicio
+        end_time: Fin
+        weekdays: Días
+      weekday:
+        day: Día
+        block: Bloque
+        communes: Comunas
+      holiday:
+        id: ID Feriado
+        name: Nombre
+        day: Fecha
+      removal:
+        id: ID Retiro
+        invoice_id: ID Transacción
+        invoice: Transacción
+        status: Estado
+        day: Fecha
+        block: Bloque
+        highway_id: Código de seguimiento
+        address: Dirección
+        commune: Comuna
+        user: Cliente
+        planning_removals: Planificaciones
+      company:
+        id: ID Empresa
+        relation_id: ID Relaciones
+        name: Razón social
+        email: Correo electrónico
+        rut: RUT
+        phone: Teléfono
+        short_name: Nombre corto
+        is_active: Activo
+        sap_code: Código SAP
+        logistic_service: Tipo de servicio logístico
+        address: Dirección de retiro
+        commune: Comuna
+        city: Ciudad
+        contact_name: Nombre contacto
+        periodicity: Periodicidad de retiro
+        service_description: Descripcion del servicio
+        sinader: Establecimiento SINADER
+        zones: Zonas
+        itineraries: Rutas
+      zone:
+        id: ID Zona
+        name: Nombre
+        day: Día
+        company: Empresa
+        addresses: Direcciones
+        start_time: Inicio
+        end_time: Fin
+      vehicle:
+        id: ID Vehículo
+        name: Nombre
+        email: Correo Electrónico
+        phone: Teléfono
+        weekdays: Días
+        origin: Origen
+        destination: Destino
+      planning:
+        id: ID Planificación
+        name: Nombre
+        day: Fecha
+        external_id: ID Externo
+        vehicles: Rutas
+        removals: Servicios
+        itinerary_ids: Rutas
+      planning_vehicle:
+        id: ID Ruta
+        planning: Planificación
+        vehicle: Vehículo
+        external_id: ID Externo
+        service_ids: Servicios
+        services: Servicios
+      planning_removal:
+        id: ID Servicio
+        planning: Planificación
+        removal: Retiro
+        user: Usuario
+        address: Dirección
+        external_id: ID Externo
+        order: Orden
+        route: Ruta
+      feedback:
+        id: ID Ticket de Soporte
+        status: Estado
+        subject: Asunto
+        user: Usuario
+        comments: Comentarios
+        created_at: Fecha de apertura
+        closed_at: Fecha de Cierre
+      comment:
+        id: ID Comentario
+        feedback: Ticket de Soporte
+        message: Mensaje
+        user: Usuario
+      commune_request:
+        id: ID Solicitud de Comuna
+        user: Usuario
+        commune: Comuna
+        name: Nombre
+        email: Correo Electrónico
+        phone: Teléfono
+      itinerary:
+        id: ID Ruta
+        name: Nombre
+        day: Día
+        vehicle: Vehículo
+        addresses: Direcciones
+      planning_address:
+        id: ID Servicio
+        status: Estado
+        address: Dirección
+        planning: Planificación
+        external_id: ID Externo
+        order: Orden
+        route: Ruta
+      mail_registry:
+        id: ID Correo
+        status: Estado
+        subject: Asunto
+        email: Correo Electrónico
+        created_at: Fecha
+        body: Cuerpo
+      account_activity:
+        id: ID Historial de autenticación
+        activity_type: Acción
+        referrer: URL
+        created_at: Fecha
+
+    state_machines:
+      contract:
+        states:
+          account: Cuenta
+          address: Dirección
+          delivery: Retiro
+          conditions: Términos de Servicio
+          payment: Pago
+
+  enums:
+    feedback:
+      status:
+        active: Activo
+        closed: Cerrado
+    weekday:
+      day:
+        monday: Lunes
+        tuesday: Martes
+        wednesday: Miércoles
+        thursday: Jueves
+        friday: Viernes
+        saturday: Sábado
+        sunday: Domingo
+    plan:
+      periodicity:
+        monthly: Mensual
+        quarterly: Trimestral
+        half_yearly: Semestral
+        yearly: Anual
+    coupon:
+      discount_type:
+        percent: Porcentaje
+        fixed: Fijo
+    contract:
+      status:
+        active: Vigente
+        inactive: No Vigente
+    sale_price:
+      discount_type:
+        percent: Porcentaje
+        fixed: Fijo
+    invoice:
+      status:
+        pending: No Pagado
+        paid: Pagado
+        done: Procesado
+    removal:
+      status:
+        protested: Problema de agenda
+        scheduled: Agendado
+        finished: Realizado
+        failed: Fallido
+        rejected: Suspendido por cliente
+    zone:
+      day:
+        monday: Lunes
+        tuesday: Martes
+        wednesday: Miércoles
+        thursday: Jueves
+        friday: Viernes
+        saturday: Sábado
+        sunday: Domingo
+    highway:
+      reason:
+        nobody: Nadie en Casa
+        wrong_address: Dirección Equivocada
+        other: Otras Razones
+        default: ''
+    itinerary:
+      day:
+        monday: Lunes
+        tuesday: Martes
+        wednesday: Miércoles
+        thursday: Jueves
+        friday: Viernes
+        saturday: Sábado
+        sunday: Domingo
+    planning_address:
+      status:
+        scheduled: Agendado
+        finished: Realizado
+        failed: Fallido
+    mail_registry:
+      status:
+        processing: Procesando
+        processed: Procesado
+        dropped: Caído
+        deferred: Diferido
+        bounced: Rebotado/Obstruido
+        delivered: Entregado
+        opened: Abierto
+        clicked: Clickeado
+        click: Clickeado
+        request: Procesado
+    company:
+      logistic_service:
+        eds_copec: EDS COPEC
+        ab_chile: AB CHILE
+        rembre_home: REMBRE HOME
+        industrial: INDUSTRIAL
+        office: OFICINA
+      periodicity:
+        daily: Diaria
+        weekly: Semanal
+        biweekly: Quincenal
+        monthly: Mensual
+        timely: Puntual
+    user:
+      registered_as:
+        building: Formulario de Registro
+        home: Formulario Home
+        backend: Creado por Administrador
