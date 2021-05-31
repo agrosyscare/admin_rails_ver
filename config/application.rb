@@ -18,7 +18,7 @@ module Agrosyscare
     config.i18n.default_locale = :es
     #
     config.time_zone = "Santiago"
-    config.active_record.default_timezone = :local
+    # config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

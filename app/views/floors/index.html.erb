@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header card-header-success">
     <h4 class="card-title ">
-      Secciones
+      <%= Floor.human_title(:index) %>
       <%= link_to_new new_floor_path %>
     </h4>
   </div>
@@ -10,9 +10,9 @@
       <table class="table table-hover" id="floors-dttb" data-source="<%= datatable_floors_path(format: :json) %>">
         <thead>
           <tr>
-            <th data-data='id'>ID</th>
-            <th data-data='name'>Name</th>
-            <th data-data='plant_type'>Plant Type</th>
+            <th data-data='id'><%= Floor.human_attribute_name(:id) %></th>
+            <th data-data='name'><%= Floor.human_attribute_name(:name) %></th>
+            <th data-data='plant_type'><%= Floor.human_attribute_name(:plant_type) %></th>
             <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
           </tr>
         </thead>

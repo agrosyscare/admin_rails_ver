@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def link_to_chart(url, options={})
-    title = options[:title] || t(:list, scope: [:views, :buttons])
+    title = options[:title] || t(:charts, scope: [:views, :buttons])
     icon = options[:icon] || 'auto_graph'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
       content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")

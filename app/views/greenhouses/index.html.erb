@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header card-header-success">
     <h4 class="card-title ">
-      Greenhouses
+      <%= Greenhouse.human_title(:index) %>
       <%= link_to_new new_greenhouse_path %>
     </h4>
   </div>
@@ -10,9 +10,9 @@
       <table class="table table-hover" id="greenhouses-dttb" data-source="<%= datatable_greenhouses_path(format: :json) %>">
         <thead>
           <tr>
-            <th data-data='id'>ID</th>
-            <th data-data='name'>Name</th>
-            <th data-data='description'>Description</th>
+            <th data-data='id'><%= Greenhouse.human_attribute_name(:id) %></th>
+            <th data-data='name'><%= Greenhouse.human_attribute_name(:name) %></th>
+            <th data-data='description'><%= Greenhouse.human_attribute_name(:description) %></th>
             <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
           </tr>
         </thead>
