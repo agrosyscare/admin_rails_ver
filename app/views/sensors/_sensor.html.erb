@@ -1,12 +1,17 @@
-<div class="card">
-  <div class="card-header">
-    <%= link_to sensor.model, sensor %>
-  </div>
-  <div class="card-body">
-    <%= sensor.environmental_condition.name %>
-  </div>
-  <div class="card-footer">
-    <%= link_to 'Edit', edit_sensor_path(sensor) %>
-    <%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="form-group">
+  <div class="row">
+    <div class="col-2 font-weight-bold">
+      <%= sensor.model %>
+    </div>
+    <div class="col-3">
+      <%= sensor.environmental_condition.name %>
+    </div>
+    <div class="col-3">
+      <%= sensor.floor.id.to_s+": "+sensor.floor.name %>
+    </div>
+    <div class="col-3">
+      <%= link_to_edit edit_sensor_path(sensor) %>
+      <%= link_to_destroy sensor %>
+    </div>
   </div>
 </div>

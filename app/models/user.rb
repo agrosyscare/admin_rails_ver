@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  validates :rut, presence: true, run: {uniqueness: false}, if: Proc.new { |u| u.rut.present? || !u.super_admin? }
+  validates :rut, presence: true, run: {uniqueness: false}
   validates :firstname, presence: true
   validates :lastname, presence: true
 

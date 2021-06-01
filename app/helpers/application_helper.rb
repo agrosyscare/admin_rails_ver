@@ -3,7 +3,7 @@ module ApplicationHelper
     title = options[:title] || t(:back, scope: [:views, :buttons])
     icon = options[:icon] || 'arrow_back'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-      content_tag(:i, icon, class: "material-icons pull-right")
+      content_tag(:i, icon, class: "material-icons pull-right", style: "color:#ffff")
     end
   end
 
@@ -25,7 +25,7 @@ module ApplicationHelper
 
   def link_to_show(url, options={})
     title = options[:title] || t(:show, scope: [:views, :buttons])
-    icon = options[:icon] || 'person'
+    icon = options[:icon] || 'details'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
       content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")
     end
@@ -47,21 +47,4 @@ module ApplicationHelper
       content_tag(:i, icon, class: "material-icons", style: "color:red")
     end
   end
-
-  # def link_to_reload(url, options={})
-  #   title = options[:title] || t(:reload, scope: [:views, :buttons])
-  #   icon = options[:icon] || 'fas fa-sync'
-  #   link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-  #     content_tag(:i, '', class: "#{icon} px-1")
-  #   end
-  # end
-
-  # def link_to_switch(url, options={active: true})
-  #   title = options[:title] || options[:active] ? t(:switch_off, scope: [:views, :buttons]) : t(:switch_on, scope: [:views, :buttons])
-  #   icon = options[:icon] || options[:active] ? 'fas fa-toggle-on' : 'fas fa-toggle-off'
-  #   confirm = options[:confirm] || options[:active] ? t(:switch_off, scope: [:views, :confirmations]) : t(:switch_on, scope: [:views, :confirmations])
-  #   link_to url, data: { confirm: confirm, toggle: "tooltip", animation: false }, title: title do
-  #     content_tag(:i, '', class: "#{icon} px-1")
-  #   end
-  # end
 end
