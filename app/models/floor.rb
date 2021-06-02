@@ -6,4 +6,7 @@ class Floor < ApplicationRecord
   has_many :temperature_readings, through: :sensors
   has_many :humidity_readings, through: :sensors
   has_many :root_moisture_readings, through: :sensors
+
+  validates :name, presence: true
+
 end
