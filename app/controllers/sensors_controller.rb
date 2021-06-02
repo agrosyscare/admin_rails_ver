@@ -25,11 +25,9 @@ class SensorsController < ApplicationController
 
     respond_to do |format|
       if @sensor.save
-        format.html { redirect_to @sensor, notice: "Sensor was successfully created." }
-        format.json { render :show, status: :created, location: @sensor }
+        format.html { redirect_to @sensor.arduino, notice: "Sensor was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @sensor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,11 +36,9 @@ class SensorsController < ApplicationController
   def update
     respond_to do |format|
       if @sensor.update(sensor_params)
-        format.html { redirect_to @sensor, notice: "Sensor was successfully updated." }
-        format.json { render :show, status: :ok, location: @sensor }
+        format.html { redirect_to @sensor.arduino, notice: "Sensor was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @sensor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +48,6 @@ class SensorsController < ApplicationController
     @sensor.destroy
     respond_to do |format|
       format.html { redirect_to sensors_url, notice: "Sensor was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
@@ -64,6 +59,6 @@ class SensorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sensor_params
-      params.require(:sensor).permit(:model, :serial, :environmental_condition_id, :arduino_id)
+      params.require(:sensor).permit(:model, :serial, :environmental_condition_id, :floor_id ,:arduino_id)
     end
 end

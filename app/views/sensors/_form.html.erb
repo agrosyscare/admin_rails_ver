@@ -21,9 +21,10 @@
 <div class="row">
   <div class="col-md-12">
     <div class="form-group">
-      <%= f.association :arduino, label_method: :model, value_method: :id, include_blank: false, input_html: { class: "custom-select" } %>
+      <%= f.association :floor, include_blank: false, input_html: { class: "custom-select" } %>
     </div>
   </div>
 </div>
+<%= f.input :arduino_id, as: :hidden, input_html:{ value: params[:arduino_id] } %>
   <%= f.button :submit, class:"btn btn-primary pull-right" %>
 <% end %>

@@ -59,12 +59,10 @@
       </div>
       <div class="tab-pane" id="sensors">
         <p class="text-right">
-          <span class="nav-tabs-title text-success">Añadir sensor</span>
+          <span class="nav-tabs-title text-success"><%= t(:add_sensor, scope: [:views, :texts])%></span>
           <%= link_to_new new_sensor_path(arduino_id: @arduino.id) %>
         </p>
-        <% @sensors.each do |sensor| %>
-        <%= render 'sensors/sensor', sensor: sensor %>
-        <% end %>
+        <%= render 'sensors/sensor', sensors: @arduino.sensors %>
       </div>
     </div>
   </div>
