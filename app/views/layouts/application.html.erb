@@ -21,6 +21,8 @@
     <%= render "layouts/partials/sidebar" %>
     <div class="main-panel">
       <%= render "layouts/partials/navbar" %>
+      <%= notice %>
+      <%= alert %>
       <div class="content mt-5">
         <div class="container-fluid">
           <%= yield %>
@@ -29,6 +31,8 @@
       <%= render "layouts/partials/footer" %>
     </div>
     <% else %>
+    <%= notice %>
+    <%= alert %>
     <div class="content">
       <div class="container-fluid">
         <%= yield %>
