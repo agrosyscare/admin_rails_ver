@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'home/activity'
-  get 'home/index'
+  get 'home', to: 'home#index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   namespace 'charts' do
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
   resources :floors, concerns: [:with_datatable]
   resources :users, concerns: [:with_datatable]
   resources :sensors
+  resources :audits, only: [:index]
 
   namespace :api do
     namespace :v1 do
