@@ -15,7 +15,7 @@
 
  */
 
-(function() {
+ (function() {
   isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
   if (isWindows) {
@@ -49,9 +49,9 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-$(document).on('ready', function() {
+document.addEventListener("turbolinks:load", function() {
 
-  $('body').bootstrapMaterialDesign();
+  // $('body').bootstrapMaterialDesign();
 
   $sidebar = $('.sidebar');
 
@@ -63,12 +63,9 @@ $(document).on('ready', function() {
   md.checkSidebarImage();
 
   //    Activate bootstrap-select
-  // if ($(".selectpicker").length != 0) {
-  //   $(".selectpicker").selectpicker();
-  // }
-
-  //  Activate the tooltips
-  $('[rel="tooltip"]').tooltip();
+  if ($(".selectpicker").length != 0) {
+    $(".selectpicker").selectpicker();
+  }
 
   $('.form-control').on("focus", function() {
     $(this).parent('.input-group').addClass("input-group-focus");
@@ -115,7 +112,7 @@ $(document).on('click', '.navbar-toggler', function() {
       $layer.addClass('visible');
     }, 100);
 
-    $layer.click(function() {
+    $layer.on('click', function() {
       $('html').removeClass('nav-open');
       mobile_menu_visible = 0;
 
@@ -136,7 +133,7 @@ $(document).on('click', '.navbar-toggler', function() {
 });
 
 // activate collapse right menu when the windows is resized
-$(window).resize(function() {
+$(window).on('resize', function() {
   md.initSidebarsCheck();
 
   // reset the seq for charts drawing animations
@@ -146,6 +143,7 @@ $(window).resize(function() {
     md.initDashboardPageCharts();
   }, 500);
 });
+
 
 md = {
   misc: {
