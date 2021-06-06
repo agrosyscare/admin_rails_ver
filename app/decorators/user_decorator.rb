@@ -3,6 +3,7 @@ class UserDecorator < ApplicationDecorator
 
   def dt_actions
     links = []
+    links << h.link_to_show(h.user_path(object))
     links << h.link_to_edit(h.edit_user_path(object))
     links << h.link_to_destroy(h.user_path(object))
 

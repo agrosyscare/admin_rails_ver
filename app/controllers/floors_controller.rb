@@ -13,8 +13,9 @@ class FloorsController < ApplicationController
     end
   end
 
-  # GET /floors/1 or /floors/1.json
+  # GET /floors/1
   def show
+    @audit = @floor.versions
   end
 
   # GET /floors/new

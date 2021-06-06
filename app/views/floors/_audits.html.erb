@@ -1,0 +1,39 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t(:user, scope: [:activerecord, :attributes, :audit]) %></th>
+      <th><%= t(:date, scope: [:activerecord, :attributes, :audit]) %></th>
+      <th><%= t(:changes, scope: [:activerecord, :attributes, :audit]) %></th>
+      <th><%= t(:actions, scope: [:activerecord, :attributes, :audit]) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audit.reverse_each do |version| %>
+    <tr>
+      <td><%= version.whodunnit %></td>
+      <td><%= l(version.created_at, format: :long) %></td>
+      <td>
+        <ul class="list-group">
+          <% version.object_changes.each do |object| %>
+          <strong><%= t(object[0], scope: [:activerecord, :attributes, :greenhouse]) %></strong>
+          <% if object[0] == 'encrypted_password' %>
+          <p class="font-italic">Información privada</p>
+          <% else %>
+          <ul>
+            <li>
+              <%= "Previo: #{object[1][0]}" %>
+            </li>
+            <li>
+              <%= "Posterior: #{object[1][1]}" %>
+            </li>
+          </ul>
+          <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <td><%= link_to_rollback(greenhouse_rollback_path(@greenhouse, version: version)) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

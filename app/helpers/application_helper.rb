@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def link_to_back(url, options={})
     title = options[:title] || t(:back, scope: [:views, :buttons])
     icon = options[:icon] || 'arrow_back'
@@ -11,7 +12,7 @@ module ApplicationHelper
     title = options[:title] || t(:charts, scope: [:views, :buttons])
     icon = options[:icon] || 'auto_graph'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-      content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")
+      content_tag(:i, icon, class: "material-icons", style: "color:#694A38")
     end
   end
 
@@ -25,7 +26,7 @@ module ApplicationHelper
 
   def link_to_show(url, options={})
     title = options[:title] || t(:show, scope: [:views, :buttons])
-    icon = options[:icon] || 'details'
+    icon = options[:icon] || 'preview'
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
       content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")
     end
@@ -45,6 +46,14 @@ module ApplicationHelper
     icon = options[:icon] || 'close'
     link_to url, data: { confirm: confirm, toggle: "tooltip", animation: false }, method: :delete, title: title do
       content_tag(:i, icon, class: "material-icons", style: "color:red")
+    end
+  end
+
+  def link_to_rollback(url, options={})
+    title = options[:title] || t(:rollback, scope: [:views, :buttons])
+    icon = options[:icon] || 'settings_backup_restore'
+    link_to url, data: { toggle: "tooltip", animation: false }, title: title do
+      content_tag(:i, icon, class: "material-icons")
     end
   end
 end

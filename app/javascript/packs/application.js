@@ -32,3 +32,6 @@ require('packs/phone')
 require('packs/run_cl')
 require('packs/datatables')
 require('packs/custom')
+
+// Themes
+require('packs/material-dashboard/material-dashboard')

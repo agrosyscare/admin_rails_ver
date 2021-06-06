@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_paper_trail only: %i[rut firstname middlename lastname mothername phone email encrypted_password]
+
   rolify
   after_create :assign_default_role
   devise :database_authenticatable,
@@ -9,6 +11,14 @@ class User < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :phone, format: {with: /\A\+56[2-9]\d{8}\z/}, if: Proc.new { |u| u.phone.present? }
+
+  def super_admin?
+    Rails.configuration.super_admins.include?(self.email)
+  end
+
+  def complete_name
+    "#{firstname.strip} #{middlename.strip} #{lastname.strip} #{mothername.strip}".strip
+  end
 
   def rut=(value)
     super(Run.format(value))
@@ -24,3 +34,4 @@ class User < ApplicationRecord
     end
   end
 end
+

@@ -15,6 +15,7 @@ class ArduinosController < ApplicationController
 
   # GET /arduinos/1 or /arduinos/1.json
   def show
+    @audit = @arduino.versions
     @sensors = @arduino.sensors
   end
 

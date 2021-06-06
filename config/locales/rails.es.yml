@@ -78,8 +78,8 @@ es:
     formats:
       default: "%H:%M:%S"
       short: "%H:%M"
-      long: "%d de %B de %Y %H:%M"
-      datetime: "%d-%m-%Y %H:%M:%S"
+      long: "%d de %B de %Y, %H:%M"
+      datetime: "%d-%m-%Y, %H:%M:%S"
     am: "am"
     pm: "pm"
 

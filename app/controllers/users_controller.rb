@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
+  def show
+  end
+
+  # GET /users/new
   def new
     @user = User.new
   end
@@ -30,6 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @audit = @user.versions
   end
 
   def edit
@@ -42,6 +47,16 @@ class UsersController < ApplicationController
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def rollback
+    @user = User.find(params[:user_id])
+    version = @user.versions.find(params[:version])
+    if version.reify.save
+      redirect_to @user, notice: 'User was successfully rollbacked.'
+    else
+      render :show
     end
   end
 

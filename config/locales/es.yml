@@ -16,7 +16,6 @@ es:
       arduinos: Dispositivos IoT
       sensors: Sensores
       users: Usuarios
-      audits: Auditorias
       temperature: Temperatura
       humidity: Humedad ambiental
       root_moisture: Humedad radicular
@@ -28,6 +27,7 @@ es:
       show: Detalles
       edit: Editar
       destroy: Eliminar
+      rollback: Restaurar
       profile: Mi perfil
       account: Mi cuenta
       toggle: Desplegar menú
@@ -78,6 +78,8 @@ es:
         id: ID Invernadero
         name: Nombre
         description: Descripción
+        created_at: Creado en
+        updated_at: Actualizado en
       floor:
         id: ID Sección
         name: Nombre
@@ -103,6 +105,16 @@ es:
         mothername: Apellido materno
         phone: Teléfono
         email: Correo electrónico
+        encrypted_password: Contraseña
         password: Contraseña
         password_confirmation: Confirmación de contraseña
         remember_me: Recordar mis datos
+        created_at: Creado en
+        updated_at: Actualizado en
+        last_sign_in_at: Fecha último ingreso
+      audit:
+        id: ID Registro
+        user: Usuario
+        date: Fecha
+        changes: Cambios
+        actions: Acciones

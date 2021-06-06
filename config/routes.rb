@@ -16,18 +16,27 @@ Rails.application.routes.draw do
     post 'datatable', on: :collection
   end
 
-  resources :greenhouses, except: :show, concerns: [:with_datatable] do
+  resources :greenhouses, concerns: [:with_datatable] do
+    get :rollback
     member do
       get :charts
     end
   end
 
-  resources :arduinos, concerns: [:with_datatable]
-  resources :environmental_settings, only: %i[index update]
-  resources :floors, concerns: [:with_datatable]
-  resources :users, concerns: [:with_datatable]
+  resources :floors, concerns: [:with_datatable] do
+    get :rollback
+  end
+
+  resources :arduinos, concerns: [:with_datatable] do
+    get :rollback
+  end
+
+  resources :users, concerns: [:with_datatable] do
+    get :rollback
+  end
+
   resources :sensors
-  resources :audits, only: [:index]
+  resources :environmental_settings, only: %i[index]
 
   namespace :api do
     namespace :v1 do
