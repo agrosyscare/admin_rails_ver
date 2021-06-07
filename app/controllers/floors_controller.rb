@@ -33,11 +33,9 @@ class FloorsController < ApplicationController
 
     respond_to do |format|
       if @floor.save
-        format.html { redirect_to @floor, notice: "Floor was successfully created." }
-        format.json { render :show, status: :created, location: @floor }
+        format.html { redirect_to @floor, notice: Floor.human_notice(:created)}
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @floor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,11 +44,9 @@ class FloorsController < ApplicationController
   def update
     respond_to do |format|
       if @floor.update(floor_params)
-        format.html { redirect_to @floor, notice: "Floor was successfully updated." }
-        format.json { render :show, status: :ok, location: @floor }
+        format.html { redirect_to @floor, notice: Floor.human_notice(:updated) }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @floor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,8 +55,17 @@ class FloorsController < ApplicationController
   def destroy
     @floor.destroy
     respond_to do |format|
-      format.html { redirect_to floors_url, notice: "Floor was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to floors_url, notice: Floor.human_notice(:destroyed) }
+    end
+  end
+
+  def rollback
+    @floor = Floor.find(params[:floor_id])
+    version = @floor.versions.find(params[:version])
+    if version.reify.save
+      redirect_to @floor, notice: Floor.human_notice(:rollbacked)
+    else
+      render :show, error: Floor.human_notice(:rollbacked)
     end
   end
 

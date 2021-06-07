@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get :rollback
   end
 
-  resources :sensors
+  resources :sensors, except: %i[index show]
   resources :environmental_settings, only: %i[index]
 
   namespace :api do

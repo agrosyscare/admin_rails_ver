@@ -47,7 +47,7 @@ document.addEventListener("turbolinks:load", function() {
     ajax: {
       url: $("#greenhouses-dttb").data("source"),
       type: "POST",
-    },
+    }
   });
 
   $("#floors-dttb").DataTable({

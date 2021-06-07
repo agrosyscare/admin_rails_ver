@@ -1,5 +1,5 @@
 class Floor < ApplicationRecord
-  has_paper_trail only: %i[ name plant_type greenhouse_id]
+  has_paper_trail on: %i[ update destroy ], only: %i[ name plant_type greenhouse_id]
   belongs_to :greenhouse
 
   has_many :sensors

@@ -6,7 +6,10 @@ es:
       created: '%{model} fue creado con éxito'
       updated: '%{model} fue actualizado con éxito'
       destroyed: '%{model} fue eliminado con éxito'
+      rollbacked: '%{model} fue restaurado con éxito'
     errors:
+      data: Hubo problemas al ingresar sus datos. Favor revisar formulario
+      rollback: Hubo problemas con la restauración
       not_found: No encontrado
 
   views:

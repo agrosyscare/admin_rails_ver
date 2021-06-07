@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_paper_trail only: %i[rut firstname middlename lastname mothername phone email encrypted_password]
+  has_paper_trail on: %i[ update destroy ], only: %i[rut firstname middlename lastname mothername phone email encrypted_password]
 
   rolify
   after_create :assign_default_role

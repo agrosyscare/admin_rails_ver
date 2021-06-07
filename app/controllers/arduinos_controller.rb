@@ -34,11 +34,9 @@ class ArduinosController < ApplicationController
 
     respond_to do |format|
       if @arduino.save
-        format.html { redirect_to @arduino, notice: "Arduino was successfully created." }
-        format.json { render :show, status: :created, location: @arduino }
+        format.html { redirect_to @arduino, notice: Arduino.human_notice(:created) }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @arduino.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,11 +45,10 @@ class ArduinosController < ApplicationController
   def update
     respond_to do |format|
       if @arduino.update(arduino_params)
-        format.html { redirect_to @arduino, notice: "Arduino was successfully updated." }
+        format.html { redirect_to @arduino, notice: Arduino.human_notice(:updated) }
         format.json { render :show, status: :ok, location: @arduino }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @arduino.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,8 +57,17 @@ class ArduinosController < ApplicationController
   def destroy
     @arduino.destroy
     respond_to do |format|
-      format.html { redirect_to arduinos_url, notice: "Arduino was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to arduinos_url, notice: Arduino.human_notice(:destroyed) }
+    end
+  end
+
+  def rollback
+    @arduino = Arduino.find(params[:arduino_id])
+    version = @arduino.versions.find(params[:version])
+    if version.reify.save
+      redirect_to @arduino, notice: Arduino.human_notice(:rollbacked)
+    else
+      render :show, error: Arduino.human_notice(:rollback)
     end
   end
 

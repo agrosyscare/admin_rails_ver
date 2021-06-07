@@ -8,6 +8,6 @@ class GreenhouseDecorator < Draper::Decorator
     links << h.link_to_edit(h.edit_greenhouse_path(object))
     links << h.link_to_destroy(h.greenhouse_path(object))
 
-    h.content_tag(:div, h.safe_join(links, ' '), class: 'table-actions')
+    h.content_tag(:div, h.safe_join(links, ''), class: 'table-actions')
   end
 end

@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: "User was successfully created." }
+        format.html { redirect_to users_path, notice: User.human_notice(:created) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -43,10 +43,18 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: "User was successfully updated." }
+        format.html { redirect_to users_path, notice: User.human_notice(:updated) }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # DELETE /users/1
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: User.human_notice(:destroyed) }
     end
   end
 
@@ -54,9 +62,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     version = @user.versions.find(params[:version])
     if version.reify.save
-      redirect_to @user, notice: 'User was successfully rollbacked.'
+      redirect_to @user, notice: User.human_notice(:rollbacked)
     else
-      render :show
+      render :show, error: User.human_notice(:rollback)
     end
   end
 

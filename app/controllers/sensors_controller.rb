@@ -1,14 +1,5 @@
 class SensorsController < ApplicationController
-  before_action :set_sensor, only: %i[ show edit update destroy ]
-
-  # GET /sensors or /sensors.json
-  def index
-    @sensors = Sensor.all
-  end
-
-  # GET /sensors/1 or /sensors/1.json
-  def show
-  end
+  before_action :set_sensor, only: %i[ edit update destroy ]
 
   # GET /sensors/new
   def new
@@ -25,7 +16,7 @@ class SensorsController < ApplicationController
 
     respond_to do |format|
       if @sensor.save
-        format.html { redirect_to @sensor.arduino, notice: "Sensor was successfully created." }
+        format.html { redirect_to @sensor.arduino, notice: Sensor.human_notice(:created) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -36,7 +27,7 @@ class SensorsController < ApplicationController
   def update
     respond_to do |format|
       if @sensor.update(sensor_params)
-        format.html { redirect_to @sensor.arduino, notice: "Sensor was successfully updated." }
+        format.html { redirect_to @sensor.arduino, notice: Sensor.human_notice(:updated) }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -47,7 +38,7 @@ class SensorsController < ApplicationController
   def destroy
     @sensor.destroy
     respond_to do |format|
-      format.html { redirect_to sensors_url, notice: "Sensor was successfully destroyed." }
+      format.html { redirect_to sensors_url, notice: Sensor.human_notice(:destroyed) }
     end
   end
 

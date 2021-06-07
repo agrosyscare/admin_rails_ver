@@ -1,5 +1,5 @@
 class Greenhouse < ApplicationRecord
-  has_paper_trail only: %i[ name description ]
+  has_paper_trail on: %i[ update destroy ], only: %i[ name description ]
   has_many :floors
 
   validates :name, presence: true
