@@ -1,5 +1,5 @@
 class GreenhousesController < ApplicationController
-  # before_action :set_greenhouse, only: %i[ show edit update destroy ]
+  before_action :set_greenhouse, only: %i[ show edit update destroy ]
 
   # GET /greenhouses or /greenhouses.json
   def index

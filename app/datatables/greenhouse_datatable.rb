@@ -5,7 +5,7 @@ class GreenhouseDatatable < ApplicationDatatable
       id: { source: "Greenhouse.id", cond: :eq },
       name: { source: "Greenhouse.name", cond: :like },
       description: { source: "Greenhouse.description", cond: :like },
-      buttons: { sercheable: false, orderable: false }
+      buttons: { searchable: false, orderable: false }
     }
   end
 

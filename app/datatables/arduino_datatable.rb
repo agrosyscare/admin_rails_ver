@@ -5,7 +5,7 @@ class ArduinoDatatable < ApplicationDatatable
       id: { source: "Arduino.id", cond: :eq },
       model: { source: "Arduino.model", cond: :like },
       serial: { source: "Arduino.serial", cond: :like },
-      buttons: { sercheable: false, orderable: false }
+      buttons: { searchable: false, orderable: false }
     }
   end
 

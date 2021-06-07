@@ -7,7 +7,7 @@ class UserDatatable < ApplicationDatatable
       firstname: { source: "User.firstname", cond: :like },
       lastname: { source: "User.lastname", cond: :like },
       email: { source: "User.email", cond: :like },
-      buttons: { sercheable: false, orderable: false }
+      buttons: { searchable: false, orderable: false }
     }
   end
 

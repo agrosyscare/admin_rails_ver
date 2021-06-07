@@ -17,7 +17,11 @@ class User < ApplicationRecord
   end
 
   def complete_name
-    "#{firstname.strip} #{middlename.strip} #{lastname.strip} #{mothername.strip}".strip
+    if middlename.nil? || mothername.nil?
+      "#{firstname.strip} #{lastname.strip}".strip
+    else
+      "#{firstname.strip} #{middlename.strip} #{lastname.strip} #{mothername.strip}".strip
+    end
   end
 
   def rut=(value)
