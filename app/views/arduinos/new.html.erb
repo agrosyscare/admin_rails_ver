@@ -1,5 +1,11 @@
-<h1>New Arduino</h1>
-
-<%= render 'form', arduino: @arduino %>
-
-<%= link_to 'Back', arduinos_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= Arduino.human_title(:create) %>
+      <%= link_to_back arduinos_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', arduino: @arduino %>
+  </div>
+</div>

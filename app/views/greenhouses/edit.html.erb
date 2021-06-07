@@ -1,6 +1,11 @@
-<h1>Editing Greenhouse</h1>
-
-<%= render 'form', greenhouse: @greenhouse %>
-
-<%= link_to 'Show', @greenhouse %> |
-<%= link_to 'Back', greenhouses_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= Greenhouse.human_title(:update) %>
+      <%= link_to_back greenhouses_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', greenhouse: @greenhouse %>
+  </div>
+</div>

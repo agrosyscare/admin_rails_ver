@@ -13,37 +13,59 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
+  def show
+  end
+
+  # GET /users/new
   def new
     @user = User.new
   end
 
-  # POST /users or /users.json
   def create
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to users_path, notice: User.human_notice(:created) }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def show
+    @audit = @user.versions
   end
 
   def edit
   end
 
   def update
+    respond_to do |format|
       if @user.update(user_params)
-        redirect_to users_path, notice: "User was successfully updated."
+        format.html { redirect_to users_path, notice: User.human_notice(:updated) }
       else
-        render :edit, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # DELETE /users/1
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: User.human_notice(:destroyed) }
+    end
+  end
+
+  def rollback
+    @user = User.find(params[:user_id])
+    version = @user.versions.find(params[:version])
+    if version.reify.save
+      redirect_to @user, notice: User.human_notice(:rollbacked)
+    else
+      render :show, error: User.human_notice(:rollback)
+    end
   end
 
   private
@@ -53,7 +75,22 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit({role_ids: []})
-  end
+    dynamic_attributes = []
 
+    unless (params[:user][:password].nil? || params[:user][:password].blank?)
+      dynamic_attributes << [:password, :password_confirmation]
+    end
+
+    params.require(:user).permit(
+      :rut,
+      :firstname,
+      :middlename,
+      :lastname,
+      :mothername,
+      :email,
+      :phone,
+      {role_ids: []},
+      *dynamic_attributes
+    )
+  end
 end

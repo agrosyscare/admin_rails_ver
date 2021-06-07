@@ -1,0 +1,5 @@
+<% flash.each do |type, msg| %>
+  <% if msg.present? %>
+    <script>md.showNotification("<%= type %>","<%= msg %>")</script>
+  <% end %>
+<% end %>

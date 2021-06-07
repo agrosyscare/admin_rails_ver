@@ -6,4 +6,8 @@ class Sensor < ApplicationRecord
   has_many :temperature_readings
   has_many :humidity_readings
   has_many :root_moisture_readings
+
+  validates :model, presence: true
+  validates :serial, presence: true
+
 end

@@ -3,9 +3,9 @@ class ArduinoDecorator < ApplicationDecorator
 
   def dt_actions
     links = []
-    links << h.link_to('Show', h.arduino_path(object))
-    links << h.link_to('Edit', h.edit_arduino_path(object))
-    links << h.link_to('Delete', h.arduino_path(object), method: :delete, data: { confirm: 'Are you sure?' })
+    links << h.link_to_show(h.arduino_path(object))
+    links << h.link_to_edit(h.edit_arduino_path(object))
+    links << h.link_to_destroy(h.arduino_path(object))
 
     h.content_tag(:div, h.safe_join(links, ' '), class: 'table-actions')
   end

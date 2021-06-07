@@ -1,5 +1,11 @@
-<h1>New Floor</h1>
-
-<%= render 'form', floor: @floor %>
-
-<%= link_to 'Back', floors_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= Floor.human_title(:create) %>
+      <%= link_to_back floors_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', floor: @floor %>
+  </div>
+</div>

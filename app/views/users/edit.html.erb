@@ -1,6 +1,11 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= User.human_title(:update) %>
+      <%= link_to_back users_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', user: @user %>
+  </div>
+</div>

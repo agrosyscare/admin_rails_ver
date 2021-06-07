@@ -1,5 +1,11 @@
-<h1>New Sensor</h1>
-
-<%= render 'form', sensor: @sensor %>
-
-<%= link_to 'Back', sensors_path %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= Sensor.human_title(:create) %>
+      <%= link_to_back arduinos_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', sensor: @sensor %>
+  </div>
+</div>

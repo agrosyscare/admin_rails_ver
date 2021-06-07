@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Agrosyscare</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
+
+<head>
+  <title><%= t(:app_name) %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+</head>
+
+<body>
+  <div class="wrapper">
     <% if current_user %>
-      <%= render 'layouts/navbar' %>
-      <%#= render 'layouts/footer' %>
+    <%= render "layouts/partials/sidebar" %>
+    <div class="main-panel">
+      <%= render "layouts/partials/navbar" %>
+      <%= render "layouts/flash_messages" %>
+      <div class="content mt-5">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/partials/footer" %>
+    </div>
     <% else %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <div class="container">
+    <%= render "layouts/flash_messages" %>
+    <div class="content">
+      <div class="container-fluid">
         <%= yield %>
       </div>
+    </div>
     <% end %>
-  </body>
+  </div>
+</body>
+
 </html>

@@ -1,0 +1,5 @@
+es:
+  errors:
+    messages:
+      run: Debe ser un rut válido
+      uniq_run: Debe ser un rut único

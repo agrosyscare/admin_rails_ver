@@ -1,12 +1,23 @@
-<div class="card">
-  <div class="card-header">
-    <%= link_to sensor.model, sensor %>
-  </div>
-  <div class="card-body">
-    <%= sensor.environmental_condition.name %>
-  </div>
-  <div class="card-footer">
-    <%= link_to 'Edit', edit_sensor_path(sensor) %>
-    <%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Sensor.human_attribute_name(:model) %></th>
+      <th><%= Sensor.human_attribute_name(:environmental_condition) %></th>
+      <th><%= Sensor.human_attribute_name(:floor) %></th>
+      <th><%= t(:actions, scope: [:views, :titles])%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sensors.each do |sensor| %>
+    <tr>
+      <td class="font-weight-bold"><%= sensor.model %></td>
+      <td><%= sensor.environmental_condition.name %></td>
+      <td><%= sensor.floor.id.to_s+": "+sensor.floor.name %></td>
+      <td class="td-actions text-right">
+        <%= link_to_edit edit_sensor_path(sensor) %>
+        <%= link_to_destroy sensor %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

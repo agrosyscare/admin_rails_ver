@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'home/activity'
-  get 'home/index'
+  get 'home', to: 'home#index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   namespace 'charts' do
@@ -18,16 +17,26 @@ Rails.application.routes.draw do
   end
 
   resources :greenhouses, concerns: [:with_datatable] do
+    get :rollback
     member do
       get :charts
     end
   end
 
-  resources :arduinos, concerns: [:with_datatable]
-  resources :environmental_settings, only: %i[index update]
-  resources :floors, concerns: [:with_datatable]
-  resources :users, concerns: [:with_datatable]
-  resources :sensors
+  resources :floors, concerns: [:with_datatable] do
+    get :rollback
+  end
+
+  resources :arduinos, concerns: [:with_datatable] do
+    get :rollback
+  end
+
+  resources :users, concerns: [:with_datatable] do
+    get :rollback
+  end
+
+  resources :sensors, except: %i[index show]
+  resources :environmental_settings, only: %i[index]
 
   namespace :api do
     namespace :v1 do

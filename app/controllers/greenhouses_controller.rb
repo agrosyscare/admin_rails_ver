@@ -1,5 +1,5 @@
 class GreenhousesController < ApplicationController
-  before_action :set_greenhouse, only: [:show, :edit, :update, :destroy]
+  before_action :set_greenhouse, only: %i[ show edit update destroy ]
 
   # GET /greenhouses or /greenhouses.json
   def index
@@ -13,8 +13,9 @@ class GreenhousesController < ApplicationController
     end
   end
 
-  # GET /greenhouses/1 or /greenhouses/1.json
+  # GET /greenhouses/1
   def show
+    @audit = @greenhouse.versions
   end
 
   # GET /greenhouses/new
@@ -32,11 +33,9 @@ class GreenhousesController < ApplicationController
 
     respond_to do |format|
       if @greenhouse.save
-        format.html { redirect_to @greenhouse, notice: "Greenhouse was successfully created." }
-        format.json { render :show, status: :created, location: @greenhouse }
+        format.html { redirect_to @greenhouse, notice: Greenhouse.human_notice(:created) }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @greenhouse.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,11 +44,9 @@ class GreenhousesController < ApplicationController
   def update
     respond_to do |format|
       if @greenhouse.update(greenhouse_params)
-        format.html { redirect_to @greenhouse, notice: "Greenhouse was successfully updated." }
-        format.json { render :show, status: :ok, location: @greenhouse }
+        format.html { redirect_to @greenhouse, notice: Greenhouse.human_notice(:updated) }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @greenhouse.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,8 +55,17 @@ class GreenhousesController < ApplicationController
   def destroy
     @greenhouse.destroy
     respond_to do |format|
-      format.html { redirect_to greenhouses_url, notice: "Greenhouse was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to greenhouses_url, notice: Greenhouse.human_notice(:destroyed) }
+    end
+  end
+
+  def rollback
+    @greenhouse = Greenhouse.find(params[:greenhouse_id])
+    version = @greenhouse.versions.find(params[:version])
+    if version.reify.save
+      redirect_to @greenhouse, notice: Greenhouse.human_notice(:rollbacked)
+    else
+      render :show, error: Greenhouse.human_notice(:rollback)
     end
   end
 

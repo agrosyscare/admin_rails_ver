@@ -1,0 +1,123 @@
+es:
+  app_name: AgroSyscare
+
+  controllers:
+    notices:
+      created: '%{model} fue creado con éxito'
+      updated: '%{model} fue actualizado con éxito'
+      destroyed: '%{model} fue eliminado con éxito'
+      rollbacked: '%{model} fue restaurado con éxito'
+    errors:
+      data: Hubo problemas al ingresar sus datos. Favor revisar formulario
+      rollback: Hubo problemas con la restauración
+      not_found: No encontrado
+
+  views:
+    menu:
+      greenhouses: Invernaderos
+      floors: Secciones
+      arduinos: Dispositivos IoT
+      sensors: Sensores
+      users: Usuarios
+      temperature: Temperatura
+      humidity: Humedad ambiental
+      root_moisture: Humedad radicular
+
+    buttons:
+      new: Nuevo
+      charts: Gráficos
+      back: Regresar
+      show: Detalles
+      edit: Editar
+      destroy: Eliminar
+      rollback: Restaurar
+      profile: Mi perfil
+      account: Mi cuenta
+      toggle: Desplegar menú
+      sign_in: Iniciar sessión
+      sign_out: Cerrar sessión
+
+    titles:
+      index: 'Lista %{model}'
+      show: 'Detalles %{model}'
+      create: 'Crear %{model}'
+      update: 'Editar %{model}'
+      destroy: 'Eliminar %{model}'
+      charts: 'Gráficos de %{model}'
+      average: Promedio
+      minimum: Mínimo
+      maximum: Máximo
+      actions: Acciones
+
+    confirmations:
+      destroy: ¿Esta seguro que desea eliminar este registro?
+      sign_out: ¿Esta seguro que desea cerrar su sesión?
+
+    devise:
+      change_your_password: Cambia su contraseña
+      new_password: Nueva contraseña
+      confirm_your_new_password: Confirmar nueva contraseña
+      change_my_password: Cambiar mi contraseña
+      forgot_pasword: ¿Olvidó su contraseña?
+      send_me_reset_password_instructions: Enviarme las instrucciones de restablecer contraseña
+      sign_in: Iniciar Sesión
+      resend_confirmation_instructions: Volver a enviar las instrucciones de confirmación
+
+    texts:
+      sign_in: Ingresa con tus credenciales
+      add_sensor: Añadir sensor
+
+  activerecord:
+    models:
+      greenhouse: Invernadero
+      floor: Sección
+      arduino: Dispositivo IoT
+      sensor: Sensor
+      environmental_condition: Condición ambiental
+      user: Usuario
+
+    attributes:
+      greenhouse:
+        id: ID Invernadero
+        name: Nombre
+        description: Descripción
+        created_at: Creado en
+        updated_at: Actualizado en
+      floor:
+        id: ID Sección
+        name: Nombre
+        plant_type: Especies plantadas
+        greenhouse: Invernadero
+      arduino:
+        id: ID Dispositivo IoT
+        model: Modelo
+        serial: Serial
+      sensor:
+        id: ID Sensor
+        model: Modelo
+        serial: Serial
+        environmental_condition: Condición ambiental
+        arduino: Dispositivo IoT
+        floor: Sección
+      user:
+        id: ID Usuario
+        rut: RUT
+        firstname: Nombre
+        middlename: Segundo nombre
+        lastname: Apellido paterno
+        mothername: Apellido materno
+        phone: Teléfono
+        email: Correo electrónico
+        encrypted_password: Contraseña
+        password: Contraseña
+        password_confirmation: Confirmación de contraseña
+        remember_me: Recordar mis datos
+        created_at: Creado en
+        updated_at: Actualizado en
+        last_sign_in_at: Fecha último ingreso
+      audit:
+        id: ID Registro
+        user: Usuario
+        date: Fecha
+        changes: Cambios
+        actions: Acciones

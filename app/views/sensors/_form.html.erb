@@ -1,37 +1,30 @@
-<%= form_with(model: sensor) do |form| %>
-  <% if sensor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sensor.errors.count, "error") %> prohibited this sensor from being saved:</h2>
-
-      <ul>
-        <% sensor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= simple_form_for @sensor do |f| %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :model, input_html: { class: "form-control" } %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
   </div>
-
-  <div class="field">
-    <%= form.label :serial %>
-    <%= form.text_field :serial %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :serial, input_html: { class: "form-control" } %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :environmental_condition_id %>
-    <%= form.text_field :environmental_condition_id %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.association :environmental_condition, include_blank: false, input_html: { class: "custom-select" } %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :arduino_id %>
-    <%= form.text_field :arduino_id %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.association :floor, include_blank: false, input_html: { class: "custom-select" } %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+<%= f.input :arduino_id, as: :hidden, input_html:{ value: params[:arduino_id] } %>
+  <%= f.button :submit, class:"btn btn-primary pull-right" %>
 <% end %>

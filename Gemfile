@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.3.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -35,7 +35,6 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'pry', '~> 0.13.1'
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
@@ -60,12 +59,13 @@ gem 'active_model_serializers'
 gem 'ajax-datatables-rails'
 gem 'chartkick'
 gem 'devise'
+gem 'devise-security'
 gem 'draper'
 gem 'faker'
 gem 'fcm'
 gem 'groupdate'
 gem 'jwt'
-gem 'public_activity'
+gem 'paper_trail', '~> 12.0'
 gem 'pundit'
 gem 'rolify'
 gem 'run_cl', git: 'https://mespina@bitbucket.org/mespina/run.git', branch: 'v3'

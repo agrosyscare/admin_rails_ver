@@ -1,0 +1,105 @@
+<div class="card">
+  <div class="card-header card-header-tabs card-header-success">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <span class="nav-tabs-title"><%= User.human_title(:show) %></span>
+        <ul class="nav nav-tabs mr-auto" data-tabs="tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#details" data-toggle="tab">
+              <i class="material-icons">info</i> Detalles
+              <div class="ripple-container"></div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#audits" data-toggle="tab">
+              <i class="material-icons">rule_folder</i> Log
+              <div class="ripple-container"></div>
+            </a>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to_back users_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="tab-content">
+      <div class="tab-pane active" id="details">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:rut)%>
+            </div>
+            <div class="col-9">
+              <%= @user.rut %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:firstname)%>
+            </div>
+            <div class="col-9">
+              <%= @user.complete_name %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:phone)%>
+            </div>
+            <div class="col-9">
+              <%= @user.phone %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:email)%>
+            </div>
+            <div class="col-9">
+              <%= @user.email %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:created_at)%>
+            </div>
+            <div class="col-9">
+              <%= l(@user.created_at, format: :long) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:updated_at)%>
+            </div>
+            <div class="col-9">
+              <%= l(@user.updated_at, format: :long) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= User.human_attribute_name(:last_sign_in_at)%>
+            </div>
+            <div class="col-9">
+              <%= l(@user.last_sign_in_at, format: :long) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="audits">
+        <%= render "users/audits", user: @user %>
+      </div>
+    </div>
+  </div>
+</div>

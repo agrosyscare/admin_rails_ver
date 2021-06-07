@@ -1,15 +1,72 @@
-<%= user.email %>
-
 <%= simple_form_for @user do |f| %>
-  <%= f.input :rut, wrapper_html: { class: 'rut' } %>
-  <%= f.input :firstname, wrapper_html: { class: 'firstname' } %>
-  <%= f.input :middlename, wrapper_html: { class: 'middlename' } %>
-  <%= f.input :lastname, wrapper_html: { class: 'lastname' } %>
-  <%= f.input :mothername, wrapper_html: { class: 'mothername' } %>
-  <%= f.input :phone, wrapper_html: { class: 'phone' } %>
-  <%= f.input :email, wrapper_html: { class: 'email' } %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.collection_check_boxes :role_ids, Role.all , :id, :name %>
-  <%= f.button :submit %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :rut, input_html: { class: "form-control" }, wrapper_html: { class: 'rut' } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :firstname, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :middlename, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :lastname, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.input :mothername, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :phone, input_html: { class: "form-control" }, wrapper_html: { class: 'phone' } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :email, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :password, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.input :password_confirmation, input_html: { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.collection_check_boxes :role_ids, Role.all , :id, :name %>
+    </div>
+  </div>
+</div>
+<%= f.button :submit, class:"btn btn-primary pull-right" %>
 <% end %>

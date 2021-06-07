@@ -5,7 +5,7 @@ class FloorDatatable < ApplicationDatatable
       id: { source: "Floor.id", cond: :eq },
       name: { source: "Floor.name", cond: :like },
       plant_type: { source: "Floor.plant_type", cond: :like },
-      buttons: { sercheable: false, orderable: false }
+      buttons: { searchable: false, orderable: false }
     }
   end
 
