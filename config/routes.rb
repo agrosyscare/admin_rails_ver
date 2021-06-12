@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :sensors, except: %i[index show]
-  resources :environmental_settings, only: %i[index]
+  resources :environmental_settings, only: %i[index update]
 
   namespace :api do
     namespace :v1 do

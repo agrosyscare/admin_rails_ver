@@ -36,6 +36,7 @@ es:
       toggle: Desplegar menú
       sign_in: Iniciar sessión
       sign_out: Cerrar sessión
+      environmental_settings: Configuración
 
     titles:
       index: 'Lista %{model}'
@@ -74,6 +75,7 @@ es:
       arduino: Dispositivo IoT
       sensor: Sensor
       environmental_condition: Condición ambiental
+      environmental_setting: configuración de condiciones ambientales
       user: Usuario
 
     attributes:
@@ -121,3 +123,7 @@ es:
         date: Fecha
         changes: Cambios
         actions: Acciones
+      environmental_setting:
+        environmental_condition: Condición ambiental
+        minimum_value: Valor mínimo
+        maximum_value: Valor máximo

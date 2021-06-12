@@ -8,7 +8,7 @@ class EnvironmentalSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @environmental_setting.update(EnvironmentalSettingForm.transform(environmental_setting_params))
-        format.html { redirect_to floors_path }
+        format.html { redirect_to floors_path, notice: EnvironmentalSetting.human_notice(:updated) }
       else
         format.html { render :index }
       end

@@ -27,8 +27,9 @@ module ApplicationHelper
   def link_to_show(url, options={})
     title = options[:title] || t(:show, scope: [:views, :buttons])
     icon = options[:icon] || 'preview'
+    style = options[:style] || "color:#00bcd4"
     link_to url, data: {toggle: "tooltip", animation: false}, title: title do
-      content_tag(:i, icon, class: "material-icons", style: "color:#00bcd4")
+      content_tag(:i, icon, class: "material-icons", style: style)
     end
   end
 
