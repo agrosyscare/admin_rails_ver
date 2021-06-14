@@ -20,7 +20,7 @@ class EnvironmentalSetting < ApplicationRecord
 
   def validates_condition_range
     if min_value_1 >= max_value_1 || min_value_2 >= max_value_2 || min_value_3 >= max_value_3
-      errors.add(:expiration_date, 'Incorrect data, try again')
+      errors.add(:value, I18n.t(:comparison_validation, scope: [:controllers, :errors]))
     end
   end
 end

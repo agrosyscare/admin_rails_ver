@@ -7,6 +7,7 @@
   </div>
   <div class="card-body">
     <%= simple_form_for @environmental_setting, url: environmental_setting_path(@environmental_setting, floor_id: params[:floor_id]), method: :patch do |f|%>
+    <%= f.error :value %>
     <table class="table table-borderless">
       <thead>
         <tr>

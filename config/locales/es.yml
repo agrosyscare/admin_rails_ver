@@ -9,6 +9,7 @@ es:
       rollbacked: '%{model} fue restaurado con éxito'
     errors:
       data: Hubo problemas al ingresar sus datos. Favor revisar formulario
+      comparison_validation: Uno de los valores mínimos es mayor o igual a su valor máximo. Favor corregir
       rollback: Hubo problemas con la restauración
       not_found: No encontrado
 
