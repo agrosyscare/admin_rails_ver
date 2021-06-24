@@ -20,19 +20,19 @@
             <%= line_chart charts_temperatures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
             <br/>
             <br/>
-              <%= render 'greenhouses/stadistics'%>
+              <%= render 'greenhouses/stadistics', tab: 1 %>
           </div>
           <div class="tab-pane" id="tab2">
             <%= line_chart charts_humidities_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
             <br/>
             <br/>
-              <%= render 'greenhouses/stadistics'%>
+              <%= render 'greenhouses/stadistics', tab: 2%>
           </div>
           <div class="tab-pane" id="tab3">
             <%= line_chart charts_root_moistures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
             <br/>
             <br/>
-              <%= render 'greenhouses/stadistics'%>
+              <%= render 'greenhouses/stadistics', tab: 3%>
           </div>
         </div>
       </div>

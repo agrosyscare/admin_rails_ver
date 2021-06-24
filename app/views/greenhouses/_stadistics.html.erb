@@ -8,7 +8,7 @@
       </div>
       <div class="card-body">
         <h4 class="card-title"><%= t(:average, scope: [:views, :titles]) %></h4>
-        Indicador promedio
+        <%= average_temperature(params[:id], tab) %>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
       </div>
       <div class="card-body">
         <h4 class="card-title"><%= t(:minimum, scope: [:views, :titles]) %></h4>
-        Indicador promedio
+        <%= minimum_temperature(params[:id], tab) %>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
       </div>
       <div class="card-body">
         <h4 class="card-title"><%= t(:maximum, scope: [:views, :titles]) %></h4>
-        Indicador promedio
+        <%= maximum_temperature(params[:id], tab) %>
       </div>
     </div>
   </div>

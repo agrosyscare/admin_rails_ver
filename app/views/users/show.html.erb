@@ -92,7 +92,7 @@
               <%= User.human_attribute_name(:last_sign_in_at)%>
             </div>
             <div class="col-9">
-              <%= l(@user.last_sign_in_at, format: :long) %>
+              <%= l(@user.last_sign_in_at, format: :long) if @user.last_sign_in_at %>
             </div>
           </div>
         </div>
