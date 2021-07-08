@@ -78,6 +78,7 @@ es:
       environmental_condition: Condición ambiental
       environmental_setting: configuración de condiciones ambientales
       user: Usuario
+      paper_trail/version: Version
 
     attributes:
       greenhouse:
@@ -118,7 +119,7 @@ es:
         created_at: Creado en
         updated_at: Actualizado en
         last_sign_in_at: Fecha último ingreso
-      audit:
+      paper_trail/version:
         id: ID Registro
         user: Usuario
         date: Fecha

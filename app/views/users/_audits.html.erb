@@ -1,10 +1,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th><%= t(:user, scope: [:activerecord, :attributes, :audit]) %></th>
-      <th><%= t(:date, scope: [:activerecord, :attributes, :audit]) %></th>
-      <th><%= t(:changes, scope: [:activerecord, :attributes, :audit]) %></th>
-      <th><%= t(:actions, scope: [:activerecord, :attributes, :audit]) %></th>
+      <th><%= PaperTrail::Version.human_attribute_name(:user) %></th>
+      <th><%= PaperTrail::Version.human_attribute_name(:date) %></th>
+      <th><%= PaperTrail::Version.human_attribute_name(:changes) %></th>
+      <th><%= PaperTrail::Version.human_attribute_name(:actions) %></th>
     </tr>
   </thead>
 
