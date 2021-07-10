@@ -64,7 +64,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="form-group">
-      <%= f.collection_check_boxes :role_ids, Role.all , :id, :name %>
+      <%= f.association :roles, include_blank: false, input_html: { class: "custom-select" } %>
     </div>
   </div>
 </div>
