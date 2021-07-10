@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_050654) do
+ActiveRecord::Schema.define(version: 2021_07_10_062443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,47 @@ ActiveRecord::Schema.define(version: 2021_06_05_050654) do
     t.string "serial"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "burlesque_admin_groups", force: :cascade do |t|
+    t.bigint "group_id"
+    t.string "adminable_type"
+    t.bigint "adminable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adminable_type", "adminable_id"], name: "by_adminable"
+    t.index ["group_id"], name: "index_burlesque_admin_groups_on_group_id"
+  end
+
+  create_table "burlesque_admin_roles", force: :cascade do |t|
+    t.bigint "role_id"
+    t.string "authorizable_type"
+    t.bigint "authorizable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authorizable_type", "authorizable_id"], name: "by_authorizable"
+    t.index ["role_id"], name: "index_burlesque_admin_roles_on_role_id"
+  end
+
+  create_table "burlesque_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "burlesque_role_groups", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_burlesque_role_groups_on_group_id"
+    t.index ["role_id"], name: "index_burlesque_role_groups_on_role_id"
+  end
+
+  create_table "burlesque_roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "environmental_conditions", force: :cascade do |t|
@@ -59,16 +100,6 @@ ActiveRecord::Schema.define(version: 2021_06_05_050654) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["sensor_id"], name: "index_humidity_readings_on_sensor_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
   end
 
   create_table "root_moisture_readings", force: :cascade do |t|
@@ -126,14 +157,6 @@ ActiveRecord::Schema.define(version: 2021_06_05_050654) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "role_id"
-    t.index ["role_id"], name: "index_users_roles_on_role_id"
-    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
-    t.index ["user_id"], name: "index_users_roles_on_user_id"
-  end
-
   create_table "versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.bigint "item_id", null: false
@@ -145,6 +168,10 @@ ActiveRecord::Schema.define(version: 2021_06_05_050654) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "burlesque_admin_groups", "burlesque_groups", column: "group_id"
+  add_foreign_key "burlesque_admin_roles", "burlesque_roles", column: "role_id"
+  add_foreign_key "burlesque_role_groups", "burlesque_groups", column: "group_id"
+  add_foreign_key "burlesque_role_groups", "burlesque_roles", column: "role_id"
   add_foreign_key "environmental_settings", "floors"
   add_foreign_key "floors", "greenhouses"
   add_foreign_key "humidity_readings", "sensors"

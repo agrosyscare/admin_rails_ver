@@ -61,12 +61,16 @@
     </div>
   </div>
 </div>
-<div class="row">
+<%
+=begin%>
+ <div class="row">
   <div class="col-md-12">
     <div class="form-group">
       <%= f.association :roles, include_blank: false, input_html: { class: "custom-select" } %>
     </div>
   </div>
-</div>
+</div> 
+<%
+=end%>
 <%= f.button :submit, class:"btn btn-primary pull-right" %>
 <% end %>
