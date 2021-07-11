@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title ">
+      <%= Arduino.human_title(:index) %>
+      <%= link_to_new new_admin_arduino_path %>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover" id="arduinos-dttb" data-source="<%= datatable_admin_arduinos_path(format: :json) %>">
+        <thead>
+          <tr>
+            <th data-data='id'><%= Arduino.human_attribute_name(:id) %></th>
+            <th data-data='model'><%= Arduino.human_attribute_name(:model) %></th>
+            <th data-data='serial'><%= Arduino.human_attribute_name(:serial) %></th>
+            <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

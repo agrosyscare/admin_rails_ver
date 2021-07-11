@@ -17,12 +17,26 @@
 
 <body>
   <div class="wrapper">
+    <% if current_user %>
+    <%= render "layouts/partials/sidebar" %>
+    <div class="main-panel">
+      <%= render "layouts/partials/navbar" %>
+      <%= render "layouts/flash_messages" %>
+      <div class="content mt-5">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/partials/footer" %>
+    </div>
+    <% else %>
     <%= render "layouts/flash_messages" %>
     <div class="content">
       <div class="container-fluid">
         <%= yield %>
       </div>
     </div>
+    <% end %>
   </div>
 </body>
 

@@ -3,9 +3,9 @@ class UserDecorator < ApplicationDecorator
 
   def dt_actions
     links = []
-    links << h.link_to_show(h.user_path(object))
-    links << h.link_to_edit(h.edit_user_path(object))
-    links << h.link_to_destroy(h.user_path(object))
+    links << h.link_to_show(h.admin_user_path(object))
+    links << h.link_to_edit(h.edit_admin_user_path(object))
+    links << h.link_to_destroy(h.admin_user_path(object))
 
     h.content_tag(:div, h.safe_join(links, ' '), class: 'table-actions')
   end

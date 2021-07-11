@@ -5,25 +5,25 @@
   <div class="sidebar-wrapper ">
     <ul class="nav">
       <li class="nav-item ">
-        <%= link_to greenhouses_path, class:"nav-link" do %>
+        <%= link_to admin_greenhouses_path, class:"nav-link" do %>
           <i class="material-icons", style="color:green">spa</i>
           <p> <%= t(:greenhouses, scope: [:views, :menu]) %> </p>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to floors_path, class:"nav-link" do %>
+        <%= link_to admin_floors_path, class:"nav-link" do %>
           <i class="material-icons", style="color:green">local_florist</i>
           <p><%= t(:floors, scope: [:views, :menu]) %></p>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to arduinos_path, class:"nav-link" do %>
+        <%= link_to admin_arduinos_path, class:"nav-link" do %>
           <i class="material-icons", style="color:green">cast_for_education</i>
           <p><%= t(:arduinos, scope: [:views, :menu]) %></p>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to users_path, class:"nav-link" do %>
+        <%= link_to admin_users_path, class:"nav-link" do %>
           <i class="material-icons", style="color:green">person</i>
           <p><%= t(:users, scope: [:views, :menu]) %></p>
         <% end %>

@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title ">
+      <%= Greenhouse.human_title(:charts)%>
+      <%= link_to_back admin_greenhouses_path%>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-pills-primary flex-column">
+          <li class="nav-item"><a class="nav-link active" href="#tab1" data-toggle="tab"><%= t(:temperature, scope: [:views, :menu]) %></a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab"><%= t(:humidity, scope: [:views, :menu]) %></a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab"><%= t(:root_moisture, scope: [:views, :menu]) %></a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <%= line_chart admin_charts_temperatures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+              <%= render 'admin/greenhouses/stadistics', tab: 1 %>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <%= line_chart admin_charts_humidities_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+              <%= render 'admin/greenhouses/stadistics', tab: 2%>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <%= line_chart admin_charts_root_moistures_path(value: params[:id]), xtitle: 'Fecha', ytitle: 'Indicador', legend: 'bottom' %>
+            <br/>
+            <br/>
+              <%= render 'admin/greenhouses/stadistics', tab: 3%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
