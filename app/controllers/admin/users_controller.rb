@@ -82,6 +82,10 @@ module Admin
         dynamic_attributes << [:password, :password_confirmation]
       end
 
+      if current_user.super_admin?
+        dynamic_attributes << [group_ids: []]
+      end
+
       params.require(:user).permit(
         :rut,
         :firstname,
