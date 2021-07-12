@@ -2,7 +2,9 @@
   <div class="card-header card-header-success">
     <h4 class="card-title ">
       <%= User.human_title(:index) %>
-      <%= link_to_new new_admin_user_path %>
+      <% if policy(User).new? %>
+        <%= link_to_new new_admin_user_path %>
+      <% end %>
     </h4>
   </div>
   <div class="card-body">

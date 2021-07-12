@@ -20,11 +20,29 @@ class UserDatatable < ApplicationDatatable
         firstname: record.firstname,
         lastname: record.lastname,
         email: record.email,
-        buttons: record.decorate.dt_actions,
+        buttons: dt_actions(record),
 
         DT_RowClass: dt_row_class(record)
       }
     end
   end
 
+  protected
+  def dt_actions(record)
+    links = []
+
+    if policy(record).show?
+      links << link_to_show(view.admin_user_path(record))
+    end
+
+    if policy(record).edit?
+      links << link_to_edit(view.edit_admin_user_path(record))
+    end
+
+    if policy(record).destroy?
+      links << link_to_destroy(view.admin_user_path(record))
+    end
+
+    content_tag(:div, safe_join(links, ''), class: 'table-actions')
+  end
 end

@@ -2,7 +2,9 @@
   <div class="card-header card-header-success">
     <h4 class="card-title ">
       <%= Arduino.human_title(:index) %>
+      <% if policy(Arduino).new? %>
       <%= link_to_new new_admin_arduino_path %>
+      <% end %>
     </h4>
   </div>
   <div class="card-body">

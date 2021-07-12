@@ -3,13 +3,14 @@ module Admin
     before_action :set_user, only: %i[ show edit update destroy ]
 
     def index
+      authorize User
     end
 
     def datatable
-      @users = User.all
+      @users = policy_scope(User)
 
       respond_to do |format|
-        format.json { render json: UserDatatable.new(params, collection: @users) }
+        format.json { render json: UserDatatable.new(params, collection: @users, view_context: view_context) }
       end
     end
 
@@ -19,11 +20,11 @@ module Admin
 
     # GET /users/new
     def new
-      @user = User.new
+      @user = authorize User.new
     end
 
     def create
-      @user = User.new(user_params)
+      @user = authorize User.new(user_params)
 
       respond_to do |format|
         if @user.save
@@ -60,7 +61,7 @@ module Admin
     end
 
     def rollback
-      @user = User.find(params[:user_id])
+      @user = policy_scope(User).find(params[:user_id])
       version = @user.versions.find(params[:version])
       if version.reify.save
         redirect_to @user, notice: User.human_notice(:rollbacked)
@@ -72,7 +73,7 @@ module Admin
     private
 
     def set_user
-      @user = User.find(params[:id])
+      @user = policy_scope(User).find(params[:id])
     end
 
     def user_params

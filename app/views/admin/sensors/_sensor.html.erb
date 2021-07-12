@@ -4,7 +4,9 @@
       <th><%= Sensor.human_attribute_name(:model) %></th>
       <th><%= Sensor.human_attribute_name(:environmental_condition) %></th>
       <th><%= Sensor.human_attribute_name(:floor) %></th>
+      <% if policy(Sensor).edit? || policy(Sensor).destroy? %>
       <th><%= t(:actions, scope: [:views, :titles])%></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +16,12 @@
       <td><%= sensor.environmental_condition.name %></td>
       <td><%= sensor.floor.id.to_s+": "+sensor.floor.name %></td>
       <td class="td-actions text-right">
-        <%= link_to_edit edit_admin_sensor_path(sensor) %>
-        <%= link_to_destroy admin_sensor_path(sensor) %>
+        <% if policy(Sensor).edit? %>
+          <%= link_to_edit edit_admin_sensor_path(sensor) %>
+        <% end %>
+        <% if policy(Sensor).destroy? %>
+          <%= link_to_destroy admin_sensor_path(sensor) %>
+        <% end %>
       </td>
     </tr>
     <% end %>

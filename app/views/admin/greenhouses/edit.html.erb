@@ -2,7 +2,9 @@
   <div class="card-header card-header-success">
     <h4 class="card-title">
       <%= Greenhouse.human_title(:update) %>
-      <%= link_to_back admin_greenhouses_path%>
+      <% if policy(Greenhouse).index? %>
+        <%= link_to_back admin_greenhouses_path%>
+      <% end %>
     </h4>
   </div>
   <div class="card-body">

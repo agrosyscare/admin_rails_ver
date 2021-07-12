@@ -17,7 +17,6 @@ load "#{Rails.root}/db/seeds/environmental_conditions.rb"
 load "#{Rails.root}/db/seeds/burlesque.rb"
 
 if ENV.fetch('RAILS_ENV', 'development') == 'development'
-
   load "#{Rails.root}/db/seeds/greenhouses.rb"
   load "#{Rails.root}/db/seeds/arduinos.rb"
   load "#{Rails.root}/db/seeds/floors.rb" if Greenhouse.exists?

@@ -10,15 +10,19 @@
               <div class="ripple-container"></div>
             </a>
           </li>
+          <% if current_user.super_admin? || current_user.is_manager? %>
           <li class="nav-item">
             <a class="nav-link" href="#audits" data-toggle="tab">
               <i class="material-icons">rule_folder</i> Log
               <div class="ripple-container"></div>
             </a>
           </li>
+          <% end %>
+          <% if policy(Floor).index? %>
           <li class="nav-item ml-auto">
             <%= link_to_back admin_floors_path %>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>

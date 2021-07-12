@@ -4,13 +4,14 @@ module Admin
 
     # GET /greenhouses or /greenhouses.json
     def index
+      authorize Greenhouse
     end
 
     def datatable
-      @greenhouses = Greenhouse.all
+      @greenhouses = policy_scope(Greenhouse)
 
       respond_to do |format|
-        format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses) }
+        format.json { render json: GreenhouseDatatable.new(params, collection: @greenhouses, view_context: view_context) }
       end
     end
 
@@ -21,7 +22,7 @@ module Admin
 
     # GET /greenhouses/new
     def new
-      @greenhouse = Greenhouse.new
+      @greenhouse = authorize Greenhouse.new
     end
 
     # GET /greenhouses/1/edit
@@ -30,7 +31,7 @@ module Admin
 
     # POST /greenhouses or /greenhouses.json
     def create
-      @greenhouse = Greenhouse.new(greenhouse_params)
+      @greenhouse = authorize Greenhouse.new(greenhouse_params)
 
       respond_to do |format|
         if @greenhouse.save
@@ -61,7 +62,7 @@ module Admin
     end
 
     def rollback
-      @greenhouse = Greenhouse.find(params[:greenhouse_id])
+      @greenhouse = policy_scope(Greenhouse).find(params[:greenhouse_id])
       version = @greenhouse.versions.find(params[:version])
       if version.reify.save
         redirect_to [:admin, @greenhouse], notice: Greenhouse.human_notice(:rollbacked)
@@ -73,7 +74,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_greenhouse
-        @greenhouse = Greenhouse.find(params[:id])
+        @greenhouse = policy_scope(Greenhouse).find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.

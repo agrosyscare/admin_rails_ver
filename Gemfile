@@ -61,7 +61,6 @@ gem 'burlesque', git: 'https://bitbucket.org/mespina/burlesque.git', branch: 'ra
 gem 'chartkick'
 gem 'devise'
 gem 'devise-security'
-gem 'draper'
 gem 'faker'
 gem 'fcm'
 gem 'groupdate'

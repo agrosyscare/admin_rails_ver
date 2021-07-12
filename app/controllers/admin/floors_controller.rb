@@ -2,15 +2,16 @@ module Admin
   class FloorsController < AdminController
     before_action :set_floor, only: [:show, :edit, :update, :destroy]
 
-    # GET /floors or /floors.json
+    # GET /floors
     def index
+      authorize Floor
     end
 
     def datatable
-      @floors = Floor.all
+      @floors = policy_scope(Floor)
 
       respond_to do |format|
-        format.json { render json: FloorDatatable.new(params, collection: @floors) }
+        format.json { render json: FloorDatatable.new(params, collection: @floors, view_context: view_context) }
       end
     end
 
@@ -21,16 +22,16 @@ module Admin
 
     # GET /floors/new
     def new
-      @floor = Floor.new
+      @floor = authorize Floor.new
     end
 
     # GET /floors/1/edit
     def edit
     end
 
-    # POST /floors or /floors.json
+    # POST /floors
     def create
-      @floor = Floor.new(floor_params)
+      @floor = authorize Floor.new(floor_params)
 
       respond_to do |format|
         if @floor.save
@@ -41,7 +42,7 @@ module Admin
       end
     end
 
-    # PATCH/PUT /floors/1 or /floors/1.json
+    # PATCH/PUT /floors/1
     def update
       respond_to do |format|
         if @floor.update(floor_params)
@@ -52,7 +53,7 @@ module Admin
       end
     end
 
-    # DELETE /floors/1 or /floors/1.json
+    # DELETE /floors/1
     def destroy
       @floor.destroy
       respond_to do |format|
@@ -61,7 +62,7 @@ module Admin
     end
 
     def rollback
-      @floor = Floor.find(params[:floor_id])
+      @floor = policy_scope(Floor).find(params[:floor_id])
       version = @floor.versions.find(params[:version])
       if version.reify.save
         redirect_to [:admin, @floor], notice: Floor.human_notice(:rollbacked)
@@ -73,7 +74,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_floor
-        @floor = Floor.find(params[:id])
+        @floor = policy_scope(Floor).find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.

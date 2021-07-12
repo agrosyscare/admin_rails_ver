@@ -2,7 +2,9 @@
   <div class="card-header card-header-success">
     <h4 class="card-title">
       <%= Floor.human_title(:create) %>
-      <%= link_to_back admin_floors_path%>
+      <% if policy(Floor).index? %>
+        <%= link_to_back admin_floors_path%>
+      <% end %>
     </h4>
   </div>
   <div class="card-body">

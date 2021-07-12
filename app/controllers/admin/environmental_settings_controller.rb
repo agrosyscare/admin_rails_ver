@@ -4,6 +4,7 @@ module Admin
     before_action :set_environmental_conditions
 
     def index
+      authorize EnvironmentalSetting
     end
 
     def update
@@ -29,11 +30,11 @@ module Admin
     end
 
     def set_settings
-      @environmental_setting = EnvironmentalSetting.find_or_create_by(floor_id: params[:floor_id])
+      @environmental_setting = policy_scope(EnvironmentalSetting).find_or_create_by(floor_id: params[:floor_id])
     end
 
     def set_environmental_conditions
-      @environmental_conditions = EnvironmentalCondition.all
+      @environmental_conditions = policy_scope(EnvironmentalCondition).all
     end
   end
 

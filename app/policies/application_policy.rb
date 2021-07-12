@@ -11,6 +11,7 @@ class ApplicationPolicy
   end
 
   def datatable?
+    binding.irb
     index?
   end
 

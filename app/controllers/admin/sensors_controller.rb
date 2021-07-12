@@ -4,7 +4,7 @@ module Admin
 
     # GET /sensors/new
     def new
-      @sensor = Sensor.new
+      @sensor = authorize Sensor.new
     end
 
     # GET /sensors/1/edit
@@ -13,7 +13,7 @@ module Admin
 
     # POST /sensors or /sensors.json
     def create
-      @sensor = Sensor.new(sensor_params)
+      @sensor = authorize Sensor.new(sensor_params)
 
       respond_to do |format|
         if @sensor.save
@@ -46,7 +46,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_sensor
-        @sensor = Sensor.find(params[:id])
+        @sensor = policy_scope(Sensor).find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.

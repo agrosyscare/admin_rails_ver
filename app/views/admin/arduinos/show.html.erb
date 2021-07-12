@@ -16,15 +16,19 @@
               <div class="ripple-container"></div>
             </a>
           </li>
+          <% if current_user.super_admin? || current_user.is_manager? %>
           <li class="nav-item">
             <a class="nav-link" href="#audits" data-toggle="tab">
               <i class="material-icons">rule_folder</i> Log
               <div class="ripple-container"></div>
             </a>
           </li>
+          <% end %>
+          <% if policy(Arduino).index? %>
           <li class="nav-item ml-auto">
             <%= link_to_back admin_arduinos_path %>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -84,10 +88,12 @@
         </div>
       </div>
       <div class="tab-pane" id="sensors">
+        <% if policy(Sensor).new? %>
         <p class="text-right">
           <span class="nav-tabs-title text-success"><%= t(:add_sensor, scope: [:views, :texts])%></span>
           <%= link_to_new new_admin_sensor_path(arduino_id: @arduino.id) %>
         </p>
+        <% end %>
         <%= render 'admin/sensors/sensor', sensors: @arduino.sensors %>
       </div>
       <div class="tab-pane" id="audits">

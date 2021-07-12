@@ -4,13 +4,14 @@ module Admin
 
     # GET /arduinos or /arduinos.json
     def index
+      authorize Arduino
     end
 
     def datatable
-      @arduinos = Arduino.all
+      @arduinos = policy_scope(Arduino)
 
       respond_to do |format|
-        format.json { render json: ArduinoDatatable.new(params, collection: @arduinos) }
+        format.json { render json: ArduinoDatatable.new(params, collection: @arduinos, view_context: view_context) }
       end
     end
 
@@ -22,7 +23,7 @@ module Admin
 
     # GET /arduinos/new
     def new
-      @arduino = Arduino.new
+      @arduino = authorize Arduino.new
     end
 
     # GET /arduinos/1/edit
@@ -31,7 +32,7 @@ module Admin
 
     # POST /arduinos or /arduinos.json
     def create
-      @arduino = Arduino.new(arduino_params)
+      @arduino = authorize Arduino.new(arduino_params)
 
       respond_to do |format|
         if @arduino.save
@@ -63,7 +64,7 @@ module Admin
     end
 
     def rollback
-      @arduino = Arduino.find(params[:arduino_id])
+      @arduino = policy_scope(Arduino).find(params[:arduino_id])
       version = @arduino.versions.find(params[:version])
       if version.reify.save
         redirect_to [:admin, @arduino], notice: Arduino.human_notice(:rollbacked)
@@ -75,7 +76,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_arduino
-        @arduino = Arduino.find(params[:id])
+        @arduino = policy_scope(Arduino).find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.
