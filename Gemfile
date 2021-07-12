@@ -55,11 +55,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+group :development do
+  gem 'letter_opener' # config
+  gem 'letter_opener_web' # config
+end
+
 gem 'active_model_serializers'
 gem 'ajax-datatables-rails'
 gem 'burlesque', git: 'https://bitbucket.org/mespina/burlesque.git', branch: 'rails6'
 gem 'chartkick'
 gem 'devise'
+gem 'devise_invitable'
 gem 'devise-security'
 gem 'faker'
 gem 'fcm'
