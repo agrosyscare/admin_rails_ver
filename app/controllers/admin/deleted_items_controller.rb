@@ -16,6 +16,19 @@ module Admin
     def show
     end
 
+    def restore
+      @latest_version = PaperTrail::Version.find(params[:deleted_item_id])
+
+      if @latest_version.event == "destroy"
+        @version = @latest_version.reify
+        if @version.save
+          redirect_to admin_deleted_items_path, notice: "Version was successfully restored."
+        else
+          # render "deleted"
+        end
+      end
+    end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_deleted_item

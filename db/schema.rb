@@ -18,10 +18,8 @@ ActiveRecord::Schema.define(version: 2021_07_10_062443) do
   create_table "arduinos", force: :cascade do |t|
     t.string "model"
     t.string "serial"
-    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["deleted_at"], name: "index_arduinos_on_deleted_at"
   end
 
   create_table "burlesque_admin_groups", force: :cascade do |t|
@@ -82,21 +80,17 @@ ActiveRecord::Schema.define(version: 2021_07_10_062443) do
   create_table "floors", force: :cascade do |t|
     t.string "name"
     t.string "plant_type"
-    t.datetime "deleted_at"
     t.bigint "greenhouse_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["deleted_at"], name: "index_floors_on_deleted_at"
     t.index ["greenhouse_id"], name: "index_floors_on_greenhouse_id"
   end
 
   create_table "greenhouses", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["deleted_at"], name: "index_greenhouses_on_deleted_at"
   end
 
   create_table "humidity_readings", force: :cascade do |t|
@@ -120,14 +114,12 @@ ActiveRecord::Schema.define(version: 2021_07_10_062443) do
   create_table "sensors", force: :cascade do |t|
     t.string "model"
     t.string "serial"
-    t.datetime "deleted_at"
     t.bigint "environmental_condition_id", null: false
     t.bigint "arduino_id", null: false
     t.bigint "floor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["arduino_id"], name: "index_sensors_on_arduino_id"
-    t.index ["deleted_at"], name: "index_sensors_on_deleted_at"
     t.index ["environmental_condition_id"], name: "index_sensors_on_environmental_condition_id"
     t.index ["floor_id"], name: "index_sensors_on_floor_id"
   end
@@ -158,11 +150,9 @@ ActiveRecord::Schema.define(version: 2021_07_10_062443) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "device_token"
-    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -29,6 +29,7 @@ class DeletedItemDatatable < ApplicationDatatable
     links = []
 
     links << link_to_show(view.admin_deleted_item_path(record))
+    links << link_to_rollback(view.admin_deleted_item_restore_path(record))
     # if policy(record).show?
     # end
 
