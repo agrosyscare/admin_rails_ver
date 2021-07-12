@@ -20,5 +20,6 @@ module Agrosyscare
     config.time_zone = "Santiago"
     # config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+    config.super_admins = config_for(:super_admins).emails
   end
 end

@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= Sensor.human_title(:create) %>
+      <% if policy(Arduino).index? %>
+      <%= link_to_back admin_arduinos_path%>
+      <% end %>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', sensor: @sensor %>
+  </div>
+</div>

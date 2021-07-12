@@ -1,42 +1,41 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root to: 'home#index'
 
   devise_for :users
 
   get 'home', to: 'home#index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
-  namespace 'charts' do
-    get 'temperatures'
-    get 'humidities'
-    get 'root_moistures'
-  end
-
   concern :with_datatable do
     post 'datatable', on: :collection
   end
 
-  resources :greenhouses, concerns: [:with_datatable] do
-    get :rollback
-    member do
-      get :charts
+  namespace :admin do
+    root to: 'greenhouses#index'
+
+    namespace 'charts' do
+      get 'temperatures'
+      get 'humidities'
+      get 'root_moistures'
     end
+    resources :greenhouses, concerns: [:with_datatable] do
+      get :rollback
+      member do
+        get :charts
+      end
+    end
+    resources :floors, concerns: [:with_datatable] do
+      get :rollback
+    end
+    resources :arduinos, concerns: [:with_datatable] do
+      get :rollback
+    end
+    resources :users, concerns: [:with_datatable] do
+      get :rollback
+    end
+    resources :sensors, except: %i[index show]
+    resources :environmental_settings, only: %i[index update]
   end
-
-  resources :floors, concerns: [:with_datatable] do
-    get :rollback
-  end
-
-  resources :arduinos, concerns: [:with_datatable] do
-    get :rollback
-  end
-
-  resources :users, concerns: [:with_datatable] do
-    get :rollback
-  end
-
-  resources :sensors, except: %i[index show]
-  resources :environmental_settings, only: %i[index update]
 
   namespace :api do
     namespace :v1 do

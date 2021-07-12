@@ -1,0 +1,9 @@
+default: &default
+  emails:
+    - admin@admin.com
+development:
+  *default
+test:
+  *default
+production:
+  *default

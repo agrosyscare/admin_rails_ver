@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title">
+      <%= User.human_title(:create) %>
+      <% if policy(User).index? %>
+        <%= link_to_back admin_users_path%>
+      <% end %>
+    </h4>
+  </div>
+  <div class="card-body">
+    <%= render 'form', user: @user %>
+  </div>
+</div>

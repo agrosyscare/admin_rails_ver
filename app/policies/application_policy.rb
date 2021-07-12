@@ -7,15 +7,20 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    @user.super_admin? || @user.roles.action(:read).resource(@record.model_name).any?
+  end
+
+  def datatable?
+    binding.irb
+    index?
   end
 
   def show?
-    false
+    index?
   end
 
   def create?
-    false
+    @user.super_admin? || @user.roles.action(:create).resource(@record.model_name).any?
   end
 
   def new?
@@ -23,7 +28,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    @user.super_admin? || @user.roles.action(:update).resource(@record.model_name).any?
   end
 
   def edit?
@@ -31,7 +36,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    @user.super_admin? || @user.roles.action(:destroy).resource(@record.model_name).any?
   end
 
   class Scope

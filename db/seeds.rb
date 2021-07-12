@@ -14,9 +14,9 @@ user = User.find_or_create_by(email: 'admin@admin.com') do |user|
 end
 
 load "#{Rails.root}/db/seeds/environmental_conditions.rb"
+load "#{Rails.root}/db/seeds/burlesque.rb"
 
 if ENV.fetch('RAILS_ENV', 'development') == 'development'
-
   load "#{Rails.root}/db/seeds/greenhouses.rb"
   load "#{Rails.root}/db/seeds/arduinos.rb"
   load "#{Rails.root}/db/seeds/floors.rb" if Greenhouse.exists?

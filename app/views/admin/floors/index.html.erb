@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4 class="card-title ">
+      <%= Floor.human_title(:index) %>
+      <% if policy(Floor).new? %>
+        <%= link_to_new new_admin_floor_path %>
+      <% end %>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover" id="floors-dttb" data-source="<%= datatable_admin_floors_path(format: :json) %>">
+        <thead>
+          <tr>
+            <th data-data='id'><%= Floor.human_attribute_name(:id) %></th>
+            <th data-data='name'><%= Floor.human_attribute_name(:name) %></th>
+            <th data-data='plant_type'><%= Floor.human_attribute_name(:plant_type) %></th>
+            <th data-data='buttons' data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

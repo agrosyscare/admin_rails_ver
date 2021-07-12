@@ -14,7 +14,7 @@
                   <p class="d-lg-none d-md-block"><%= t(:account, scope: [:views, :buttons])%></p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <%= link_to t(:profile, scope: [:views, :buttons]), edit_user_path(current_user), class: "dropdown-item" %>
+                  <%= link_to t(:profile, scope: [:views, :buttons]), edit_admin_user_path(current_user), class: "dropdown-item" %>
                   <div class="dropdown-divider"></div>
                   <%= link_to t(:sign_out, scope: [:views, :buttons]), destroy_user_session_path, class: "dropdown-item", method: :delete %>
                 </div>
