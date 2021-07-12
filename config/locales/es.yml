@@ -7,6 +7,7 @@ es:
       updated: '%{model} fue actualizado con éxito'
       destroyed: '%{model} fue eliminado con éxito'
       rollbacked: '%{model} fue restaurado con éxito'
+      restored: '%{model} fue recuperado con éxito'
     errors:
       data: Hubo problemas al ingresar sus datos. Favor revisar formulario
       comparison_validation: Uno de los valores mínimos es mayor o igual a su valor máximo. Favor corregir
@@ -93,10 +94,14 @@ es:
         name: Nombre
         plant_type: Especies plantadas
         greenhouse: Invernadero
+        created_at: Creado en
+        updated_at: Actualizado en
       arduino:
         id: ID Dispositivo IoT
         model: Modelo
         serial: Serial
+        created_at: Creado en
+        updated_at: Actualizado en
       sensor:
         id: ID Sensor
         model: Modelo
@@ -104,6 +109,8 @@ es:
         environmental_condition: Condición ambiental
         arduino: Dispositivo IoT
         floor: Sección
+        created_at: Creado en
+        updated_at: Actualizado en
       user:
         id: ID Usuario
         rut: RUT
@@ -126,7 +133,11 @@ es:
         date: Fecha
         changes: Cambios
         actions: Acciones
+        created_at: Creado en
+        updated_at: Actualizado en
       environmental_setting:
         environmental_condition: Condición ambiental
         minimum_value: Valor mínimo
         maximum_value: Valor máximo
+        created_at: Creado en
+        updated_at: Actualizado en

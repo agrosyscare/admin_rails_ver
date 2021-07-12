@@ -9,6 +9,7 @@ Burlesque::Role.for Greenhouse
 Burlesque::Role.for Greenhouse, actions: :charts
 Burlesque::Role.for Sensor
 Burlesque::Role.for User
+Burlesque::Role.for PaperTrail::Version
 
 # GROUPS
 g = Burlesque::Group.find_or_create_by(name: "Encargado de invernadero")
@@ -16,6 +17,7 @@ g.roles << Burlesque::Role.resource(EnvironmentalSetting).where.not(id: g.role_i
 g.roles << Burlesque::Role.resource(Floor).where.not(id: g.role_ids)
 g.roles << Burlesque::Role.resource(Greenhouse).where.not(id: g.role_ids)
 g.roles << Burlesque::Role.resource(User).where.not(id: g.role_ids)
+g.roles << Burlesque::Role.resource(PaperTrail::Version).where.not(id: g.role_ids)
 
 g = Burlesque::Group.find_or_create_by(name: "Trabajador")
 g.roles << Burlesque::Role.resource(Greenhouse).action(:read).where.not(id: g.role_ids)

@@ -14,7 +14,7 @@ class DeletedItemDatatable < ApplicationDatatable
     records.map do |record|
       {
         id: record.id,
-        item_type: record.item_type,
+        item_type: t(record.item_type.downcase, scope: [:activerecord, :models]),
         whodunnit: record.whodunnit,
         created_at: l(record.created_at, format: :datetime),
         buttons: dt_actions(record),
@@ -28,10 +28,13 @@ class DeletedItemDatatable < ApplicationDatatable
   def dt_actions(record)
     links = []
 
-    links << link_to_show(view.admin_deleted_item_path(record))
-    links << link_to_rollback(view.admin_deleted_item_restore_path(record))
-    # if policy(record).show?
-    # end
+    if policy(record).show?
+      links << link_to_show(view.admin_deleted_item_path(record))
+    end
+
+    if policy(record).update?
+      links << link_to_rollback(view.admin_deleted_item_restore_path(record))
+    end
 
     content_tag(:div, safe_join(links, ''), class: 'table-actions')
   end
