@@ -48,6 +48,7 @@ es:
       update: 'Editar %{model}'
       destroy: 'Eliminar %{model}'
       charts: 'Gráficos de %{model}'
+      invite: 'Invitar %{model}'
       average: Promedio
       minimum: Mínimo
       maximum: Máximo
@@ -97,7 +98,7 @@ es:
         created_at: Creado en
         updated_at: Actualizado en
       arduino:
-        id: ID Dispositivo IoT
+        id: ID Dispositivo
         model: Modelo
         serial: Serial
         created_at: Creado en

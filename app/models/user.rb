@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_paper_trail on: %i[ update destroy ], only: %i[rut firstname middlename lastname mothername phone email encrypted_password]
 
-  devise :database_authenticatable,
+  devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :validatable,
          :trackable
 

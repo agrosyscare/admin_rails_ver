@@ -113,6 +113,9 @@ GEM
       warden (~> 1.2.3)
     devise-security (0.16.0)
       devise (>= 4.3.0, < 5.0)
+    devise_invitable (2.0.5)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     erubi (1.10.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
@@ -131,6 +134,14 @@ GEM
       activesupport (>= 5.0.0)
     jsonapi-renderer (0.2.2)
     jwt (2.2.3)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
+    letter_opener_web (1.4.0)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -273,11 +284,14 @@ DEPENDENCIES
   chartkick
   devise
   devise-security
+  devise_invitable
   faker
   fcm
   groupdate
   jbuilder (~> 2.7)
   jwt
+  letter_opener
+  letter_opener_web
   listen (~> 3.3)
   paper_trail (~> 12.0)
   pg (~> 1.1)

@@ -52,6 +52,10 @@ module Admin
       end
     end
 
+    def invitations
+      @user = authorize User.new
+    end
+
     # DELETE /users/1
     def destroy
       @user.destroy

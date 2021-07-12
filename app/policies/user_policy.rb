@@ -11,6 +11,10 @@ class UserPolicy < ApplicationPolicy
     return false if record.super_admin?
     super
   end
+
+  def invitations?
+    @user.super_admin? || @user.roles.action(:create).resource(@record.model_name).any?
+  end
   class Scope < Scope
     def resolve
       if user.super_admin?

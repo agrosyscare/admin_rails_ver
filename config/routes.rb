@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   root to: 'home#index'
 
-  devise_for :users
+  devise_for :users, controllers: { invitations: 'invitations' }
 
   get 'home', to: 'home#index'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
@@ -32,6 +34,9 @@ Rails.application.routes.draw do
     end
     resources :users, concerns: [:with_datatable] do
       get :rollback
+      collection do
+        get :invitations
+      end
     end
     resources :sensors, except: %i[index show]
     resources :environmental_settings, only: %i[index update]
