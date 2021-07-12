@@ -66,6 +66,7 @@ gem 'fcm'
 gem 'groupdate'
 gem 'jwt'
 gem 'paper_trail', '~> 12.0'
+gem "paranoia"
 gem 'pundit'
 gem 'run_cl', git: 'https://mespina@bitbucket.org/mespina/run.git', branch: 'v3'
 gem 'simple_form'

@@ -39,8 +39,8 @@
       <% if current_user.super_admin? %>
       <li class="nav-item">
         <%= link_to admin_deleted_items_path, class:"nav-link" do %>
-        <i class="material-icons" , style="color:green">person</i>
-        <p><%= t(:users, scope: [:views, :menu]) %></p>
+        <i class="material-icons" , style="color:green">delete_outline</i>
+        <p><%= t(:versions, scope: [:views, :menu]) %></p>
         <% end %>
       </li>
       <% end %>

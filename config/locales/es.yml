@@ -23,6 +23,7 @@ es:
       temperature: Temperatura
       humidity: Humedad ambiental
       root_moisture: Humedad radicular
+      versions: Registros eliminados
 
     buttons:
       new: Nuevo
