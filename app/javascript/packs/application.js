@@ -30,7 +30,7 @@ require('bootstrap-select/js/bootstrap-select')
 // Custom JS
 require('packs/custom/phone')
 require('packs/custom/run_cl')
-require('packs/custom/datatables')
+require('packs/custom/datatables.init')
 require('packs/custom/custom')
 
 // Themes

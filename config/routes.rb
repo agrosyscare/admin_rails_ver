@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     end
     resources :sensors, except: %i[index show]
     resources :environmental_settings, only: %i[index update]
+    resources :deleted_items, only: %i[index show], concerns: [:with_datatable]
   end
 
   namespace :api do

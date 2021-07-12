@@ -8,6 +8,7 @@ class ApplicationDatatable < AjaxDatatablesRails::ActiveRecord
   def_delegator :view, :link_to_edit
   def_delegator :view, :link_to_destroy
   def_delegator :view, :link_to_chart
+  def_delegator :view, :link_to_rollback
   def_delegator :view, :policy_scope
   def_delegator :view, :policy
   def_delegator :view, :l

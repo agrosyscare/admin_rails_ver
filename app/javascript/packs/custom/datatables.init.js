@@ -80,4 +80,13 @@ document.addEventListener("turbolinks:load", function() {
     },
   });
 
+  $("#deleted-items-dttb").DataTable({
+    processing: true,
+    serverSide: true,
+    order: [[0, "asc"]],
+    ajax: {
+      url: $("#deleted-items-dttb").data("source"),
+      type: "POST",
+    },
+  });
 });

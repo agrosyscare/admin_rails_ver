@@ -78,7 +78,7 @@ es:
       environmental_condition: Condición ambiental
       environmental_setting: configuración de condiciones ambientales
       user: Usuario
-      paper_trail/version: Version
+      paper_trail/version: Registros eliminados
 
     attributes:
       greenhouse:

@@ -8,8 +8,8 @@ class User < ApplicationRecord
          :trackable
 
   validates :rut, presence: true, run: {uniqueness: false}, if: Proc.new { |u| u.rut.present? } || !u.super_admin?
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  validates :firstname, presence: true || !u.super_admin?
+  validates :lastname, presence: true || !u.super_admin?
   validates :phone, format: {with: /\A\+56[2-9]\d{8}\z/}, if: Proc.new { |u| u.phone.present? }
 
   before_validation :setup_groups

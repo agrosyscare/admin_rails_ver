@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header card-header-tabs card-header-success">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <span class="nav-tabs-title"><%= PaperTrail::Version.human_title(:show) %></span>
+        <ul class="nav nav-tabs mr-auto" data-tabs="tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#details" data-toggle="tab">
+              <i class="material-icons">info</i> Detalles
+              <div class="ripple-container"></div>
+            </a>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to_back admin_deleted_items_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="tab-content">
+      <div class="tab-pane active" id="details">
+        <%=  %>
+        <% @deleted_item.object.each do |object| %>
+        <% unless object[0] == "encrypted_password" || object[1].nil? %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3 font-weight-bold">
+              <%= t(object[0], scope: [:activerecord, :attributes, @deleted_item[:item_type].downcase]) %>
+            </div>
+            <div class="col-9">
+              <%= object[1] %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
