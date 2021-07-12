@@ -12,8 +12,12 @@
     <%= f.error_notification %>
 
     <% @user.class.invite_key_fields.each do |field| -%>
-    <div class="form-inputs">
-      <%= f.input field %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.input field, input_html: { class: "form-control" } %>
+        </div>
+      </div>
     </div>
     <% end -%>
 
