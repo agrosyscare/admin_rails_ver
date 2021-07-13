@@ -36,10 +36,6 @@ require('packs/custom/custom')
 // Themes
 require('packs/material-dashboard')
 
-// require('packs/core/bootstrap-material-design.min')
-// require('packs/core/jquery.min')
-// require('packs/core/popper.min')
-
 require('packs/plugins/arrive.min')
 require('packs/plugins/bootstrap-datetimepicker.min')
 require('script-loader!packs/plugins/bootstrap-notify')
