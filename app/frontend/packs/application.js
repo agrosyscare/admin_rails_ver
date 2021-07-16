@@ -7,7 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'stylesheets/application'
+import 'packs/application'
 import 'bootstrap'
 import "@fortawesome/fontawesome-free/css/all"
 
@@ -21,11 +21,12 @@ require("datatables.net-buttons-bs4")(window, $);
 require("datatables.net-responsive-bs4")(window, $);
 require("datatables.net-select-bs4")(window, $);
 
-// Chartkick
+// // Chartkick
 require("chartkick/chart.js")
 
-// Custom JS
-require('javascript/custom/phone')
-require('javascript/custom/run_cl')
-require('javascript/custom/datatables.init')
-require('javascript/custom/custom')
+// // Custom JS
+require('../src/phone')
+require('../src/run_cl')
+require('../src/datatables')
+require('../src/datatables.init')
+require('../src/custom')
