@@ -67,9 +67,6 @@ $(document).ready(function() {
     $(".selectpicker").selectpicker();
   }
 
-  //  Activate the tooltips
-  $('[rel="tooltip"]').tooltip();
-
   $('.form-control').on("focus", function() {
     $(this).parent('.input-group').addClass("input-group-focus");
   }).on("blur", function() {
@@ -164,21 +161,31 @@ md = {
     }
   },
 
-  showNotification: function(from, align) {
-    type = ['', 'info', 'danger', 'success', 'warning', 'rose', 'primary'];
+  showNotification: function(type, msg) {
+    const card_type = [
+      { key: 'alert', color: 'warning', header: '<b>Advertencia: </b>', icon: 'warning' },
+      { key: 'notice', color: 'success', header: '', icon: 'check_circle' },
+      { key: 'error', color: 'error', header: '<b>Error: </b>', icon: 'error' }
+    ];
 
-    color = Math.floor((Math.random() * 6) + 1);
+    for (const i in card_type) {
+      if (card_type[i].key == type) {
+        color = card_type[i].color,
+        header = card_type[i].header,
+        icon_type = card_type[i].icon
+      }
+    }
 
     $.notify({
-      icon: "add_alert",
-      message: "Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer."
+      icon: icon_type,
+      message: header + msg
 
     }, {
-      type: type[color],
+      type: color,
       timer: 3000,
       placement: {
-        from: from,
-        align: align
+        from: 'top',
+        align: 'right'
       }
     });
   },

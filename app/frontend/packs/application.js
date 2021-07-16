@@ -8,8 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'packs/application'
-import 'bootstrap'
-import "@fortawesome/fontawesome-free/css/all"
+// import 'bootstrap'
+// import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
 Turbolinks.start()
@@ -30,3 +30,9 @@ require('../src/run_cl')
 require('../src/datatables')
 require('../src/datatables.init')
 require('../src/custom')
+
+// Theme
+require('../src/material-dashboard')
+require('script-loader!../src/plugins/bootstrap-notify')
+require('../src/plugins/bootstrap-material-design.min')
+require('../src/plugins/perfect-scrollbar.jquery.min')
