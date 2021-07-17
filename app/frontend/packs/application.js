@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'packs/application'
+const images = require.context("../images", true)
+const imagePath = name => images(name, true)
 // import 'bootstrap'
 // import "@fortawesome/fontawesome-free/css/all"
 

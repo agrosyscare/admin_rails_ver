@@ -9,3 +9,17 @@ span.error {
 .table-borderless td, .table-borderless th {
   border: none !important;
 }
+
+.login-card-img {
+  width: 90%;
+  height: auto;
+  border-radius: 9px 0px 0px 9px;
+}
+
+.card.login-card {
+  border-radius: 9px;
+}
+
+.card-body.login-form {
+  margin-top: 0%;
+}

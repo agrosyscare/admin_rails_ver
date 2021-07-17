@@ -3,14 +3,10 @@
     <div class="card login-card">
       <div class="row no-gutters">
         <div class="col-md-5">
-          <%
-=begin%>
- <img src="assets/images/login.jpg" alt="login" class="login-card-img"> 
-<%
-=end%>
+          <%= image_pack_tag 'login/login.jpeg' , class: "login-card-img", alt:"login" %>
         </div>
         <div class="col-md-7">
-          <div class="card-body">
+          <div class="card-body login-form">
             <div class="brand-wrapper">
               <%
 =begin%>
@@ -38,7 +34,7 @@
             </div>
             <% end %>
             <nav class="login-card-footer-nav">
-              <%= render "devise/shared/links" %>
+              <%#= render "devise/shared/links" %>
             </nav>
           </div>
         </div>
