@@ -32,7 +32,7 @@ require('../src/datatables.init')
 require('../src/custom')
 
 // Theme
-require('../src/material-dashboard')
-require('script-loader!../src/plugins/bootstrap-notify')
-require('../src/plugins/bootstrap-material-design.min')
-require('../src/plugins/perfect-scrollbar.jquery.min')
+require('../vendor/javascript/material-dashboard')
+require('script-loader!../vendor/javascript/plugins/bootstrap-notify')
+require('../vendor/javascript/plugins/bootstrap-material-design.min')
+require('../vendor/javascript/plugins/perfect-scrollbar.jquery.min')

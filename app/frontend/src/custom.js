@@ -1,5 +1,7 @@
-// document.addEventListener("turbolinks:load", function() {
-//   $("li.nav-item").on('click', function() {
-//     $(this).addClass('active').siblings().removeClass('active');
-//   });
-// });
+document.addEventListener("turbolinks:load", function() {
+  $(".nav a").on("click", function() {
+    debugger
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+  });
+});
