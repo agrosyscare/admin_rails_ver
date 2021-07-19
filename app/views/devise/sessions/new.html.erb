@@ -8,11 +8,7 @@
         <div class="col-md-7">
           <div class="card-body login-form">
             <div class="brand-wrapper">
-              <%
-=begin%>
- <img src="assets/images/logo.svg" alt="logo" class="logo"> 
-<%
-=end%>
+            <%= image_pack_tag 'login/brand.png' , class: "logo-img", alt:"logo" %>
             </div>
             <p class="login-card-description"><%= t(:sign_in, scope: [:views, :texts])%></p>
 
