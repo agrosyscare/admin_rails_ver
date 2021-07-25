@@ -1,2 +1,31 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="wrapper-home">
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <%= link_to "Ingresar", new_user_session_path, class: "nav-link" %>
+          </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="container-fluid">
+      <main class="d-flex center">
+        <div class="container">
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col">
+                <div class="card-body">
+                  <%= image_pack_tag 'login/brand.png' , class: "logo-img", alt:"logo" %>
+                  <br>
+                  <p class="text-center">Bienvenido a AgroSyscare, La suite para medición inteligente de tu invernadero</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
