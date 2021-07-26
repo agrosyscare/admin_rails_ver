@@ -10,6 +10,12 @@
               <div class="ripple-container"></div>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#mobile-app" data-toggle="tab">
+              <i class="material-icons">smartphone</i> Aplicación móvil
+              <div class="ripple-container"></div>
+            </a>
+          </li>
           <% if current_user.super_admin? || current_user.is_manager? %>
           <li class="nav-item">
             <a class="nav-link" href="#audits" data-toggle="tab">
@@ -100,6 +106,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="tab-pane" id="mobile-app">
+        <%= image_pack_tag 'qr-code.svg' , class: "qr-code" %>
       </div>
       <div class="tab-pane" id="audits">
         <%= render "admin/users/audits", user: @user %>
