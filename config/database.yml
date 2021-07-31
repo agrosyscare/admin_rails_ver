@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: agrosyscare_production
-  username: agrosyscare
-  password: <%= ENV['AGROSYSCARE_DATABASE_PASSWORD'] %>
+  username: deploy
+  password: Rails.application.credentials.db[:db_password]
