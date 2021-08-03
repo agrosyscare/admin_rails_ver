@@ -40,6 +40,7 @@ es:
       sign_in: Iniciar sessión
       sign_out: Cerrar sessión
       environmental_settings: Configuración
+      send_password: Reenviar instrucciones de cambio de contraseña
 
     titles:
       index: 'Lista %{model}'
@@ -70,6 +71,7 @@ es:
 
     texts:
       sign_in: Ingresa con tus credenciales
+      forgot_password_html: "<b>¿Olvidaste tu contraseña?</b>, favor ingresar los siguientes datos para recuperarla:"
       add_sensor: Añadir sensor
 
   activerecord:
