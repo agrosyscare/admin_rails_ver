@@ -16,7 +16,7 @@
       <td>
         <ul class="list-group">
           <% version.object_changes.each do |object| %>
-          <strong><%= t(object[0], scope: [:activerecord, :attributes, :greenhouse]) %></strong>
+          <strong><%= t(object[0], scope: [:activerecord, :attributes, :floor]) %></strong>
           <% if object[0] == 'encrypted_password' %>
           <p class="font-italic">Información privada</p>
           <% else %>

@@ -22,10 +22,13 @@ module Admin
 
       if @latest_version.event == "destroy"
         @version = @latest_version.reify
-        if @version.save
-          format.html { redirect_to admin_deleted_items_path, notice: PaperTrail::Version.human_notice(:restored) }
-        else
-          format.html { redirect_to admin_deleted_items_path, status: :unprocessable_entity }
+
+        respond_to do |format|
+          if @version.save
+            format.html { redirect_to admin_deleted_items_path, notice: PaperTrail::Version.human_notice(:restored) }
+          else
+            format.html { redirect_to admin_deleted_items_path, alert: 'Este registro no se puede restaurar' }
+          end
         end
       end
     end

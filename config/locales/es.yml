@@ -132,6 +132,8 @@ es:
         id: ID Registro
         user: Usuario
         date: Fecha
+        item_type: Elemento modificado
+        whodunnit: Responsable
         changes: Cambios
         actions: Acciones
         created_at: Creado en
