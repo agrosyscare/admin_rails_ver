@@ -16,17 +16,17 @@
  */
 
 (function() {
-  isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+  // isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
-//   if (isWindows) {
-//     // if we are on windows OS we activate the perfectScrollbar function
-//     $('.sidebar .sidebar-wrapper, .main-panel, .main').perfectScrollbar();
+  // if (isWindows) {
+  //   // if we are on windows OS we activate the perfectScrollbar function
+  //   $('.sidebar .sidebar-wrapper, .main-panel, .main').perfectScrollbar();
 
-//     $('html').addClass('perfect-scrollbar-on');
-//   } else {
-//     $('html').addClass('perfect-scrollbar-off');
-//   }
-// })();
+  //   $('html').addClass('perfect-scrollbar-on');
+  // } else {
+  //   $('html').addClass('perfect-scrollbar-off');
+  // }
+})();
 
 
 var breakCards = true;
