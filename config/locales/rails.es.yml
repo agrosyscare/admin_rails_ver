@@ -186,7 +186,7 @@ es:
     messages: &errors_messages
       inclusion: "no está incluido en la lista"
       exclusion: "está reservado"
-      invalid: "no es válido"
+      invalid: "Registro ingresado no es válido"
       confirmation: "no coincide con la confirmación"
       accepted: "debe ser aceptado"
       empty: "no puede estar vacío"
